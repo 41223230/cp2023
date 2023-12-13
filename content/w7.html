@@ -142,9 +142,50 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">First << <a href='First.html'>Previous</a> <a href='w2~w3.html'>Next</a> >> w2~w3<br /><h1>w1</h1>
-<p>心得：學期開學第一周，一開始對於這門課內容不知道要上甚麼，但是經過老師介紹了replit和github之後，了解了他們的用途以及之後課程使用，這讓我對這門課印象深刻。</p>
-<br />First << <a href='First.html'>Previous</a> <a href='w2~w3.html'>Next</a> >> w2~w3</div>
+    <div id="tipue_search_content">w6 << <a href='w6.html'>Previous</a> <a href='w13.html'>Next</a> >> w13<br /><h1>w7</h1>
+<p>日本國旗</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;gdfonts.h&gt;
+
+void drawJapaneseFlag() {
+    int flagWidth = 300;
+    int flagHeight = 200;
+
+    gdImagePtr img;
+    FILE *pngout; // Corrected the FILE pointer declaration
+
+    img = gdImageCreateTrueColor(flagWidth, flagHeight);
+
+    // 設置白色背景
+    int white = gdImageColorAllocate(img, 255, 255, 255);
+    gdImageFill(img, 0, 0, white);
+
+    // 設置紅色
+    int red = gdImageColorAllocate(img, 255, 0, 0);
+
+    // 繪製紅色圓圈
+    int circleRadius = 50;
+    int circleCenterX = flagWidth / 2;
+    int circleCenterY = flagHeight / 2;
+
+    gdImageFilledEllipse(img, circleCenterX, circleCenterY, circleRadius * 2, circleRadius * 2, red); // Corrected the ellipse dimensions
+
+    // 輸出 PNG 文件
+    pngout = fopen("japanese_flag.png", "wb");
+    gdImagePng(img, pngout);
+
+    // 釋放內存
+    gdImageDestroy(img);
+    fclose(pngout);
+}
+
+int main() {
+    drawJapaneseFlag();
+    return 0;
+}</pre>
+<p><img alt="" height="267" src="./../images/japanese_flag.png" width="400"/></p>
+<br />w6 << <a href='w6.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
         
     <!-- footer -->
       <div class="container">
