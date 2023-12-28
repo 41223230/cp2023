@@ -234,6 +234,117 @@ int main() {
 <p>gdImageFilledRectangle(img, center_x + 2.7 * cross_width, 0, center_x - 2.7 * cross_width, height, white);<br/> gdImageFilledRectangle(img, 0, center_y + 2.7 * cross_arm_width, width, center_y - 2.7 * cross_arm_width, white);</p>
 <p>// 繪製紅色十字<br/> gdImageFilledRectangle(img, center_x + 1.5 * cross_width, 0, center_x - 1.5 * cross_width, height, red);<br/> gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);<br/>}</p>
 <p><img alt="" height="200" src="./../images/uk_flag.png" width="400"/></p>
+<p>韓國國旗</p>
+<p>#include &lt;stdio.h&gt;<br/>#include &lt;gd.h&gt;<br/>#include &lt;math.h&gt;</p>
+<p>#define WIDTH 900<br/>#define HEIGHT 600<br/>#define FILENAME "south_korea_flag.png"</p>
+<p>int main() {<br/> gdImagePtr im;<br/> FILE *pngout;<br/> int white, black, red, blue;</p>
+<p>im = gdImageCreate(WIDTH, HEIGHT);</p>
+<p>white = gdImageColorAllocate(im, 255, 255, 255);<br/> black = gdImageColorAllocate(im, 0, 0, 0);<br/> red = gdImageColorAllocate(im, 205, 0, 0);<br/> blue = gdImageColorAllocate(im, 0, 56, 168);</p>
+<p>// Background (white)<br/> gdImageFilledRectangle(im, 0, 0, WIDTH, HEIGHT , white);</p>
+<p>// Blue Circle (Yin-Yang Symbol)<br/> gdImageFilledArc(im, WIDTH / 2, HEIGHT / 2, WIDTH / 3, HEIGHT / 2, 210, 30, red, gdArc);</p>
+<p>// Red Circle (Yin-Yang Symbol)<br/> gdImageFilledArc(im, WIDTH / 2, HEIGHT / 2, WIDTH / 3, HEIGHT / 2, 30, 210, blue, gdArc);</p>
+<p>int circleX = 385; // 圓心的 X 座標<br/> int circleY = 262.5; // 圓心的 Y 座標<br/> int circleRadius = 75;</p>
+<p>// 繪製圓形<br/> gdImageFilledEllipse(im, circleX, circleY, circleRadius * 2, circleRadius * 2, red);</p>
+<p>int circleX2 = 515; // 圓心的 X 座標</p>
+<p>int circleY2 = 337.5;</p>
+<p>// 繪製圓形<br/> gdImageFilledEllipse(im, circleX2, circleY2, circleRadius * 2, circleRadius * 2, blue);</p>
+<p>{</p>
+<p><br/> // 起點和終點位置</p>
+<p>int startX = 340; <br/> // 線的起點 X 座標</p>
+<p>int startY = 90; <br/> // 線的起點 Y 座標</p>
+<p>int endX = 200; <br/> // 線的終點 X 座標</p>
+<p>int endY = 260; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth = 23; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX, startY, endX, endY, black);<br/> // 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX -35, startY -10, endX -35, endY -10, black);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX -70, startY -20, endX -70, endY -20, black);</p>
+<p>int startX2 = 213; <br/> // 線的起點 X 座標</p>
+<p>int startY2 = 270; <br/> // 線的起點 Y 座標</p>
+<p>int endX2 = 133; <br/> // 線的終點 X 座標</p>
+<p>int endY2 = 210; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth2 = 25; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX2 +3, startY2, endX2 +3, endY2, white);</p>
+<p>gdImageSetThickness(im, lineWidth +10);<br/>gdImageLine(im, startX2 -17, startY2 +9 , endX2 -17, endY2 +9 , white);</p>
+<p>gdImageSetThickness(im, lineWidth );<br/>gdImageLine(im, startX2 +115, startY2 -145, endX2 +115, endY2 -145, white);</p>
+<p>gdImageSetThickness(im, lineWidth);<br/>gdImageLine(im, startX2 +120, startY2 -155, endX2 +120, endY2 -155, white);</p>
+<p>gdImageSetThickness(im, lineWidth +12);<br/>gdImageLine(im, startX2 +145, startY2 -155, endX2 +145, endY2 -155, white);<br/>}<br/> {<br/> // 起點和終點位置</p>
+<p>int startX = 330; <br/> // 線的起點 X 座標</p>
+<p>int startY = 520; <br/> // 線的起點 Y 座標</p>
+<p>int endX = 190; <br/> // 線的終點 X 座標</p>
+<p>int endY = 350; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth = 23; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX, startY, endX, endY, black);<br/> // 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX -35, startY +10, endX -35, endY +10, black);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX -70, startY +20, endX -70, endY +20, black);</p>
+<p>int startX2 = 213; <br/> // 線的起點 X 座標</p>
+<p>int startY2 = 330; <br/> // 線的起點 Y 座標</p>
+<p>int endX2 = 133; <br/> // 線的終點 X 座標</p>
+<p>int endY2 = 390; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth2 = 25; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth +8);<br/> gdImageLine(im, startX2 -11, startY2, endX2 -11, endY2, white);</p>
+<p>gdImageSetThickness(im, lineWidth +10);<br/>gdImageLine(im, startX2 -30, startY2 -9 , endX2 -30, endY2 -9 , white);</p>
+<p>gdImageSetThickness(im, lineWidth );<br/>gdImageLine(im, startX2 +100, startY2 +150, endX2 +100, endY2 +150, white);</p>
+<p>gdImageSetThickness(im, lineWidth);<br/>gdImageLine(im, startX2 +120, startY2 +155, endX2 +120, endY2 +155, white);</p>
+<p>gdImageSetThickness(im, lineWidth +14);<br/>gdImageLine(im, startX2 +145, startY2 +157, endX2 +145, endY2 +157, white);</p>
+<p>gdImageSetThickness(im, lineWidth -10);<br/>gdImageLine(im, 232, 426, 206, 448, white);</p>
+<p>}</p>
+<p>{<br/> // 起點和終點位置</p>
+<p>int startX = 564; <br/> // 線的起點 X 座標</p>
+<p>int startY = 520; <br/> // 線的起點 Y 座標</p>
+<p>int endX = 704; <br/> // 線的終點 X 座標</p>
+<p>int endY = 350; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth = 23; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX +70, startY +20, endX +70, endY +20, black);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX, startY, endX, endY, black);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX +35, startY +10, endX +35, endY +10, black);</p>
+<p>gdImageSetThickness(im, lineWidth -10);<br/>gdImageLine(im, 624, 400, 734, 490, white);</p>
+<p>int startX2 = 553; <br/> // 線的起點 X 座標</p>
+<p>int startY2 = 330; <br/> // 線的起點 Y 座標</p>
+<p>int endX2 = 633; <br/> // 線的終點 X 座標</p>
+<p>int endY2 = 390; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth2 = 25; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth +8);<br/> gdImageLine(im, startX2 +139, startY2, endX2 +139, endY2, white);</p>
+<p>gdImageSetThickness(im, lineWidth +10);<br/>gdImageLine(im, startX2 +157, startY2 -9 , endX2 +157, endY2 -9 , white);</p>
+<p>gdImageSetThickness(im, lineWidth);<br/>gdImageLine(im, startX2 +25, startY2 +155, endX2 +25, endY2 +155, white);</p>
+<p>gdImageSetThickness(im, lineWidth +30);<br/>gdImageLine(im, startX2 -3, startY2 +170, endX2 , endY2 +170, white);<br/> }<br/> {<br/> // 起點和終點位置</p>
+<p>int startX = 330; <br/> // 線的起點 X 座標</p>
+<p>int startY = 520; <br/> // 線的起點 Y 座標</p>
+<p>int endX = 190; <br/> // 線的終點 X 座標</p>
+<p>int endY = 350; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth = 23; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX, startY, endX, endY, black);<br/> // 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX -35, startY +10, endX -35, endY +10, black);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX -70, startY +20, endX -70, endY +20, black);</p>
+<p>int startX2 = 213; <br/> // 線的起點 X 座標</p>
+<p>int startY2 = 330; <br/> // 線的起點 Y 座標</p>
+<p>int endX2 = 133; <br/> // 線的終點 X 座標</p>
+<p>int endY2 = 390; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth2 = 25; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth +8);<br/> gdImageLine(im, startX2 -11, startY2, endX2 -11, endY2, white);</p>
+<p>gdImageSetThickness(im, lineWidth +10);<br/>gdImageLine(im, startX2 -30, startY2 -9 , endX2 -30, endY2 -9 , white);</p>
+<p>gdImageSetThickness(im, lineWidth );<br/>gdImageLine(im, startX2 +100, startY2 +150, endX2 +100, endY2 +150, white);</p>
+<p>gdImageSetThickness(im, lineWidth);<br/>gdImageLine(im, startX2 +120, startY2 +155, endX2 +120, endY2 +155, white);</p>
+<p>gdImageSetThickness(im, lineWidth +14);<br/>gdImageLine(im, startX2 +145, startY2 +157, endX2 +145, endY2 +157, white);</p>
+<p>gdImageSetThickness(im, lineWidth -10);<br/>gdImageLine(im, 232, 426, 206, 448, white);</p>
+<p>}<br/> {<br/> // 起點和終點位置</p>
+<p>int startX = 564; <br/> // 線的起點 X 座標</p>
+<p>int startY = 97; <br/> // 線的起點 Y 座標</p>
+<p>int endX = 704; <br/> // 線的終點 X 座標</p>
+<p>int endY = 267; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth = 23; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX +70, startY -20, endX +70, endY -20, black);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX, startY, endX, endY, black);</p>
+<p>gdImageSetThickness(im, lineWidth -10);<br/>gdImageLine(im, 624, 212, 734, 118, white);</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth);<br/> gdImageLine(im, startX +35, startY -10, endX +35, endY -10, black);</p>
+<p>int startX2 = 553; <br/> // 線的起點 X 座標</p>
+<p>int startY2 = 277; <br/> // 線的起點 Y 座標</p>
+<p>int endX2 = 633; <br/> // 線的終點 X 座標</p>
+<p>int endY2 = 217; <br/> // 線的終點 Y 座標</p>
+<p>int lineWidth2 = 25; // 線的寬度</p>
+<p>// 繪製線段<br/> gdImageSetThickness(im, lineWidth +8);<br/> gdImageLine(im, startX2 +134, startY2, endX2 +134, endY2, white);</p>
+<p>gdImageSetThickness(im, lineWidth +10);<br/>gdImageLine(im, startX2 +157, startY2 +9 , endX2 +157, endY2 +9 , white);</p>
+<p>gdImageSetThickness(im, lineWidth);<br/>gdImageLine(im, startX2 +25, startY2 -155, endX2 +25, endY2 -155, white);</p>
+<p>gdImageSetThickness(im, lineWidth +30);<br/>gdImageLine(im, startX2 -5, startY2 -155, endX2 -5, endY2 -155, white);</p>
+<p>}</p>
+<p>// Save image<br/>FILE *outputFile = fopen("./../images/korea_flag.png", "wb");<br/>if (outputFile == NULL) {<br/> fprintf(stderr, "Error opening the output file.\n");<br/> return 1;<br/>}<br/> gdImagePngEx(im, outputFile, 9);<br/> fclose(outputFile);<br/> gdImageDestroy(im);<br/> return 0;<br/> }</p>
+<p><img alt="" height="267" src="./../images/korea_flag.png" width="400"/></p>
 <br />w6 << <a href='w6.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
         
     <!-- footer -->

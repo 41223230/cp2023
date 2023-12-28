@@ -406,7 +406,33 @@ int main() {
 <p>// Use gdImageFilledPolygon to draw the star<br/> gdImageFilledPolygon(img, points, 10, color);<br/>} </p>
 <p><img alt="" height="267" src="/images/proc_flag.png" width="400"/></p>
 <p>英國國旗</p>
+<p>#include &lt;stdio.h&gt;<br/>#include &lt;gd.h&gt;<br/>#include &lt;math.h&gt;</p>
+<p>void draw_uk_flag(gdImagePtr img);<br/>void fillTriangle(gdImagePtr img, int x1, int y1, int x2, int y2, int x3, int y3, int color);</p>
+<p>int main() {<br/> // 設置國旗寬和高<br/> int width = 1200;<br/> int height = width / 2;</p>
+<p>// 創建圖像<br/> gdImagePtr img = gdImageCreateTrueColor(width, height);<br/> gdImageAlphaBlending(img, 0);</p>
+<p>// 繪製英國國旗<br/> draw_uk_flag(img);</p>
+<p>// 將圖像保存到文件<br/> FILE *outputFile = fopen("./../images/uk_flag.png", "wb");<br/> if (outputFile == NULL) {<br/> fprintf(stderr, "打开输出文件时发生错误。\n");<br/> return 1;<br/> }<br/> gdImagePngEx(img, outputFile, 9);<br/> fclose(outputFile);<br/> gdImageDestroy(img);<br/> return 0;<br/>}</p>
 <p></p>
+<p>void draw_uk_flag(gdImagePtr img) {<br/> int width = gdImageSX(img);<br/> int height = gdImageSY(img);</p>
+<p>int red, white, blue;<br/> red = gdImageColorAllocate(img, 204, 0, 0); // 红色<br/> white = gdImageColorAllocate(img, 255, 255, 255); // 白色<br/> blue = gdImageColorAllocate(img, 0, 0, 153); // 藍色</p>
+<p>gdImageFilledRectangle(img, 0, 0, width, height, blue);</p>
+<p><br/> int x1, y1, x2, y2, x3, y3;<br/> {<br/> int line_thickness = 100;<br/> gdImageSetThickness(img, line_thickness);</p>
+<p>int x1, y1, x2, y2, x3, y3;</p>
+<p>// 繪製白色斜線<br/> x1 = 0;<br/> y1 = 600;<br/> x2 = 1200;<br/> y2 = 0;<br/> gdImageLine(img, x1, y1, x2, y2, white);</p>
+<p>x1 = 0;<br/> y1 = 0;<br/> x2 = 1200;<br/> y2 = 600;<br/> gdImageLine(img, x1, y1, x2, y2, white);<br/>}<br/> {<br/> int line_thickness = 33;<br/> gdImageSetThickness(img, line_thickness);</p>
+<p><br/> // 繪製紅色斜線<br/> x1 = 566;<br/> y1 = 300;<br/> x2 = 1166;<br/> y2 = 0;<br/> gdImageLine(img, x1, y1, x2, y2, red);</p>
+<p>x1 = 1233;<br/> y1 = 600;<br/> x2 = 633;<br/> y2 = 300;<br/> gdImageLine(img, x1, y1, x2, y2, red);</p>
+<p>x1 = 566;<br/> y1 = 300;<br/> x2 = -33;<br/> y2 = 0;<br/> gdImageLine(img, x1, y1, x2, y2, red);</p>
+<p>x1 = 600;<br/> y1 = 316.5;<br/> x2 = 0;<br/> y2 = 616.5;<br/> gdImageLine(img, x1, y1, x2, y2, red);<br/> }<br/> {<br/> int line_thickness = 33;<br/> gdImageSetThickness(img, line_thickness);</p>
+<p>int x1, y1, x2, y2, x3, y3;</p>
+<p>// 繪製 斜線<br/> x1 = 0;<br/> y1 = 600;<br/> x2 = 1200;<br/> y2 = 0;<br/> gdImageLine(img, x1, y1, x2, y2, red );</p>
+<p><br/> x1 = 1200;<br/> y1 = 16.5;<br/> x2 = 600;<br/> y2 = 316.5;<br/> gdImageLine(img, x1, y1, x2, y2, white);</p>
+<p><br/> x1 = 0;<br/> y1 = 583.5;<br/> x2 = 600;<br/> y2 = 283.5;<br/> gdImageLine(img, x1, y1, x2, y2, white);</p>
+<p><br/> }</p>
+<p>// 繪製白色十字<br/> int cross_width = width / 32;<br/> int cross_arm_width = width / 32;<br/> int center_x = width / 2;<br/> int center_y = height / 2;</p>
+<p>gdImageFilledRectangle(img, center_x + 2.7 * cross_width, 0, center_x - 2.7 * cross_width, height, white);<br/> gdImageFilledRectangle(img, 0, center_y + 2.7 * cross_arm_width, width, center_y - 2.7 * cross_arm_width, white);</p>
+<p>// 繪製紅色十字<br/> gdImageFilledRectangle(img, center_x + 1.5 * cross_width, 0, center_x - 1.5 * cross_width, height, red);<br/> gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);<br/>}</p>
+<p><img alt="" height="200" src="/images/uk_flag.png" width="400"/></p>
 <h1>w12</h1>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
