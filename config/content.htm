@@ -384,6 +384,29 @@ int main() {
     return 0;
 }</pre>
 <p><img alt="" height="267" src="/images/japanese_flag.png" width="400"/></p>
+<p>中國五星旗</p>
+<p>#include &lt;stdio.h&gt;<br/>#include &lt;gd.h&gt;<br/>#include &lt;math.h&gt;</p>
+<p>// Function declarations<br/>void draw_chinese_flag(gdImagePtr img);<br/>void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle);</p>
+<p>int main() {<br/> // Flag dimensions<br/> int width = 300; // Flag width<br/> int height = 200; // Flag height</p>
+<p>// Create a true-color image<br/> gdImagePtr im = gdImageCreateTrueColor(width, height);<br/> gdImageAlphaBlending(im, 0);</p>
+<p>// Draw the Chinese flag on the image<br/> draw_chinese_flag(im);</p>
+<p>// Output the image to a PNG file<br/> FILE *outputFile = fopen("./../images/proc_flag.png", "wb");<br/> if (outputFile == NULL) {<br/> fprintf(stderr, "Error opening the output file.\n");<br/> return 1;<br/> }</p>
+<p>gdImagePngEx(im, outputFile, 9);<br/> fclose(outputFile);<br/> gdImageDestroy(im);</p>
+<p>return 0;<br/>}</p>
+<p>// Function to draw the Chinese flag<br/>void draw_chinese_flag(gdImagePtr img) {<br/> // Get the dimensions of the image<br/> int width = gdImageSX(img);<br/> int height = gdImageSY(img);</p>
+<p>// Colors for the flag<br/> int red = gdImageColorAllocate(img, 255, 0, 0); // Red background<br/> int yellow = gdImageColorAllocate(img, 255, 255, 0); // Yellow stars</p>
+<p>// Draw the red background<br/> gdImageFilledRectangle(img, 0, 0, width, height, red);</p>
+<p>// Set the size and position of the large star<br/> int star_size = (int)(0.28 * height);<br/> int star_x = (int)(0.165 * width);<br/> int star_y = (int)(0.265 * height);</p>
+<p>// Draw the large star<br/> draw_star(img, star_x, star_y, star_size, yellow, 11.0);</p>
+<p>// Draw small stars based on the actual flag proportions<br/> double radius = 0.15 * height;<br/> double angle = 360 / 7 * M_PI / 179.0;<br/> double rotation = -M_PI / 7.5;<br/> int cx = (int)(0.32 * width);<br/> int cy = (int)(0.27 * height);</p>
+<p>// Draw four small stars<br/> for (int i = -1; i &lt; 3; i++) {<br/> int x = (int)(cx + radius * cos(i * angle + rotation));<br/> int y = (int)(cy + radius * sin(i * angle + rotation));<br/> draw_star(img, x, y, 19, yellow, M_PI / 5.0);<br/> }<br/>}</p>
+<p>// Function to draw a star<br/>void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle) {<br/> gdPoint points[10];</p>
+<p>// Calculate the outer and inner points of the star<br/> double outer_radius = size / 2;<br/> double inner_radius = size / 6;<br/> double angle = M_PI / 5.0;</p>
+<p>for (int i = 0; i &lt; 10; i++) {<br/> double radius = (i % 2 == 0) ? outer_radius : inner_radius;<br/> double theta = rotation_angle + i * angle;<br/> points[i].x = x + radius * cos(theta);<br/> points[i].y = y + radius * sin(theta);<br/> }</p>
+<p>// Use gdImageFilledPolygon to draw the star<br/> gdImageFilledPolygon(img, points, 10, color);<br/>} </p>
+<p><img alt="" height="267" src="/images/proc_flag.png" width="400"/></p>
+<p>英國國旗</p>
+<p></p>
 <h1>w12</h1>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
@@ -449,6 +472,8 @@ int main() {
     gdImageDestroy(img);
     return 0;
 }</pre>
+<p>中國五星旗</p>
+<p></p>
 <p><img alt="" height="300" src="/images/hellogd.png" width="400"/></p>
 <h1>w13</h1>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">// 包含標準輸出入程式庫的標頭文件
