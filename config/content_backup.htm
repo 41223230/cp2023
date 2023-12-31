@@ -2017,6 +2017,364 @@ return 0;
 }</pre>
 <p><img alt="" height="67" src="/images/ct10.png" width="238"/></p>
 <h1>ANSIC</h1>
+<p>1</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    int n, x = 0;
+
+    printf("\n\n Check whether a given number is an ugly number:\n");
+    printf("----------------------------------------------------\n");
+
+    // 检查 scanf 的返回值
+    if (scanf("%d", &amp;n) != 1) {
+        printf("Input is not a valid integer.\n");
+        return 1;  // 退出程序，表示出现错误
+    }
+
+    if (n &lt;= 0) {
+        printf("Input a correct number.\n");
+    } else {
+        while (n != 1) {
+            if (n % 5 == 0) {
+                n /= 5;
+            } else if (n % 3 == 0) {
+                n /= 3;
+            } else if (n % 2 == 0) {
+                n /= 2;
+            } else {
+                printf("It is not an ugly number.\n");
+                x = 1;
+                break;
+            }
+        }
+
+        if (x == 0) {
+            printf("It is an ugly number.\n");
+        }
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="87" src="/images/an1.png" width="300"/><br/><br/></p>
+<p>2</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    time_t epoch = 0;
+
+    printf("\n自纪元开始以来的秒数：%ld\n", (long)epoch);
+    printf("对应的日期和时间：%s\n", asctime(gmtime(&amp;epoch)));
+
+    return 0;
+}</pre>
+<p><img alt="" height="83" src="/images/an2.png" width="345"/></p>
+<p>3</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#define __STDC_WANT_LIB_EXT1__ 1
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    time_t t = time(NULL);
+    printf("\nThe calendar time expressed as a local Time is :");   
+    printf("\nUTC:   %s", asctime(gmtime(&amp;t)));
+    printf("local: %s\n", asctime(localtime(&amp;t)));
+
+#ifdef __STDC_LIB_EXT1__
+    struct tm buf;
+    char str[26];
+
+    asctime_s(str, sizeof str, gmtime_s(&amp;t, &amp;buf));
+    printf("UTC:   %s", str);
+
+    asctime_s(str, sizeof str, localtime_s(&amp;t, &amp;buf));
+    printf("local: %s", str);
+#endif
+
+    return 0;
+}</pre>
+<p><img alt="" height="98" src="/images/an3.png" width="387"/></p>
+<p>4</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    // 设置时区为“Asia/Calcutta”
+    setenv("TZ", "/usr/share/zoneinfo/Asia/Calcutta", 1);   
+
+    // 获取并打印当前日期和时间
+    struct tm tm = *localtime(&amp;(time_t){time(NULL)});
+    printf("\n今天是 :            %s", asctime(&amp;tm));
+    printf("(夏令时 %s)\n", tm.tm_isdst ? "生效中" : "未生效");
+
+    // 将月份减去 24，表示 24 个月前的日期和时间
+    tm.tm_mon -= 24;  
+
+    // 重新计算时间
+    mktime(&amp;tm);       
+
+    // 获取并打印 24 个月前的日期和时间
+    printf("\n24个月前的日期是 : %s", asctime(&amp;tm));
+    printf("(夏令时 %s)\n\n", tm.tm_isdst ? "生效中" : "未生效");
+
+    return 0;
+}</pre>
+<p><img alt="" height="111" src="/images/an4.png" width="313"/></p>
+<p>5</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+double powxn(double x, int n) {
+    double k;
+    if (n == 0) return 1;
+    k = powxn(x * x, n / 2);
+    if (n % 2) k = k * x;
+    return k;
+}
+
+int main(void)
+{
+    double x = 7.0;
+    int n = 2;
+    printf("\nx = %f, y = %d  ", x, n);
+    printf("\nResult:(x^n) : %f ",powxn(x, n));
+    x = 6.2;
+    n = 3;
+    printf("\n\nx = %f, y = %d  ", x, n);
+    printf("\nResult:(x^n) : %f ",powxn(x, n));
+    return 0;
+}</pre>
+<p><img alt="" height="113" src="/images/an5.png" width="310"/></p>
+<p>6</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">//Source: https://bit.ly/2KNsta8
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdbool.h&gt;
+
+char* fractionToDecimal(int numerator, int denominator) {
+    char *p;
+    int psz, n, *dec, dsz, x;
+    long long num, den, k, f;
+    int i, repeat_at;
+    int neg = 0;
+
+    psz = dsz = 100; n = x = 0;
+    p = malloc(psz * sizeof(char));
+
+    neg = ((numerator &gt; 0 &amp;&amp; denominator &lt; 0) ||
+           (numerator &lt; 0 &amp;&amp; denominator &gt; 0)) ? 1 : 0;
+    num = numerator;
+    den = denominator;
+    num = (num &lt; 0) ? -num : num;
+    den = (den &lt; 0) ? -den : den;
+
+    k = num / den;
+    f = num % den;
+
+    if (neg &amp;&amp; (k || f)) p[n ++] = '-';
+
+    n += sprintf(&amp;p[n], "%lld", k);
+    if (!f) {
+        p[n] = 0;
+        return p;
+    }
+
+    p[n ++] = '.';
+
+    dec = malloc(dsz * sizeof(int));
+
+    repeat_at = -1;
+    if (f &lt; 0) f = -f;
+    while (f) {
+        for (i = 0; i &lt; x; i += 2) {
+            if (dec[i] == f) {
+                repeat_at = i;
+                goto done;
+            }
+        }
+        if (x + 1 &gt;= dsz) {
+            dsz *= 2;
+            dec = realloc(dec, dsz * sizeof(int));
+        }
+        dec[x ++] = f;
+        f *= 10;
+        k = f / den;
+        dec[x ++] = k;
+        f = f % den;
+    }
+
+done:
+    for (i = 0; i &lt; x; i += 2) {
+        if (n + 3 &gt; psz) {
+            psz *= 2;
+            p = realloc(p, psz * sizeof(char));
+        }
+        if (repeat_at == i) {
+            p[n ++] = '(';
+        }
+        p[n ++] = '0' + dec[i + 1];
+    }
+    if (repeat_at != -1) p[n ++] = ')';
+    p[n ++] = 0;
+
+    free(dec);
+
+    return p;
+}
+
+int main(void)
+{
+    int n = 3;
+    int d = 2;
+    printf("\nn = %d, d = %d  ", n, d);
+    printf("\nFractional part: %s ", fractionToDecimal(n, d));
+
+    n = 4;
+    d = 7;
+    printf("\n\nn = %d, d = %d  ", n, d);
+    printf("\nFractional part: %s ", fractionToDecimal(n, d));
+
+    return 0;
+}</pre>
+<p><img alt="" height="94" src="/images/an6.png" width="287"/></p>
+<p>7</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int fno, sno, *ptr, *qtr, sum;  // 宣告整數變數 fno, sno, sum，以及整數指標 ptr, qtr
+
+    printf("\n\n Pointer : Add two numbers :\n");
+    printf("--------------------------------\n");
+
+    printf(" Input the first number : ");
+    // 檢查 scanf 的返回值，確保成功讀取一個整數
+    if (scanf("%d", &amp;fno) != 1) {
+        fprintf(stderr, "Error: Invalid input for the first number.\n");
+        return 1;
+    }
+
+    printf(" Input the second number : ");
+    // 檢查 scanf 的返回值，確保成功讀取一個整數
+    if (scanf("%d", &amp;sno) != 1) {
+        fprintf(stderr, "Error: Invalid input for the second number.\n");
+        return 1;
+    }
+
+    ptr = &amp;fno;  // 將 fno 的地址賦值給指標 ptr
+    qtr = &amp;sno;  // 將 sno 的地址賦值給指標 qtr
+
+    sum = *ptr + *qtr;  // 解參考 ptr 和 qtr，取得值並計算它們的和
+
+    printf(" The sum of the entered numbers is : %d\n\n", sum);  // 輸出輸入數字的總和
+
+    return 0;
+}</pre>
+<p><img alt="" height="122" src="/images/an7.png" width="268"/></p>
+<p>8</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[10];  // 宣告一個大小為10的整數數組，用於存儲使用者輸入的整數
+    int i;
+
+    // 提示用戶輸入十個整數
+    printf("\n\nRead and Print elements of an array:\n");
+    printf("-----------------------------------------\n");
+    printf("Input 10 elements in the array :\n");
+
+    // 使用迴圈接受用戶輸入，並將整數存入數組
+    for (i = 0; i &lt; 10; i++) {
+        printf("element - %d : ", i);
+
+        // 檢查 scanf 的返回值，確保成功讀取一個整數
+        if (scanf("%d", &amp;arr[i]) != 1) {
+            fprintf(stderr, "Error: Invalid input for element %d.\n", i);
+            return 1;  // 如果輸入無效，返回錯誤碼
+        }
+    }
+
+    // 顯示數組中的所有元素
+    printf("\nElements in array are: ");
+    for (i = 0; i &lt; 10; i++) {
+        printf("%d  ", arr[i]);
+    }
+
+    printf("\n");
+    return 0;
+}</pre>
+<p><img alt="" height="149" src="/images/an8.png" width="285"/></p>
+<p>9</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int days, years, weeks;
+
+    days = 1329; // 總天數
+
+    // 將天數轉換為年、週和天
+    years = days / 365;  // 計算年數
+    weeks = (days % 365) / 7;  // 計算週數
+    days = days % 7;  // 計算剩餘的天數
+
+    // 輸出結果
+    printf("Years: %d\n", years);
+    printf("Weeks: %d\n", weeks);
+    printf("Days: %d\n", days);
+
+    return 0;
+}</pre>
+<p><img alt="" height="79" src="/images/an9.png" width="231"/></p>
+<p>10</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    double wi1, ci1, wi2, ci2, result; // 宣告變數，用於存儲物品的重量和數量
+
+    // 提示用戶輸入物品1的重量
+    printf("Weight - Item1: ");
+    if (scanf("%lf", &amp;wi1) != 1) {
+        fprintf(stderr, "Error: Invalid input for weight of item1.\n");
+        return 1;
+    }
+
+    // 提示用戶輸入物品1的數量
+    printf("No. of item1: ");
+    if (scanf("%lf", &amp;ci1) != 1) {
+        fprintf(stderr, "Error: Invalid input for count of item1.\n");
+        return 1;
+    }
+
+    // 提示用戶輸入物品2的重量
+    printf("Weight - Item2: ");
+    if (scanf("%lf", &amp;wi2) != 1) {
+        fprintf(stderr, "Error: Invalid input for weight of item2.\n");
+        return 1;
+    }
+
+    // 提示用戶輸入物品2的數量
+    printf("No. of item2: ");
+    if (scanf("%lf", &amp;ci2) != 1) {
+        fprintf(stderr, "Error: Invalid input for count of item2.\n");
+        return 1;
+    }
+
+    // 計算平均值
+    result = ((wi1 * ci1) + (wi2 * ci2)) / (ci1 + ci2);
+
+    // 輸出平均值
+    printf("Average Value = %f\n", result);
+
+    return 0;
+}</pre>
+<p><img alt="" height="94" src="/images/an10.png" width="203"/></p>
+<h1>ANSIC_T</h1>
 <p></p>
 <p></p>
 <h1>Brython</h1>
