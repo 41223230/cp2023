@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='First.html'>First</a><li><a href='w1.html'>w1</a><li><a href='w2~w3.html'>w2~w3</a><li><a href='w4~w5.html'>w4~w5</a><li><a href='w6.html'>w6</a><li><a href='w7.html'>w7</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w15.html'>w15</a><li><a href='C_EX.html'>C_EX</a><li><a href='CEX_T.html'>CEX_T</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='First.html'>First</a><li><a href='w1.html'>w1</a><li><a href='w2~w3.html'>w2~w3</a><li><a href='w4~w5.html'>w4~w5</a><li><a href='w6.html'>w6</a><li><a href='w7.html'>w7</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w15.html'>w15</a><li><a href='C_EX.html'>C_EX</a><li><a href='CEX_T.html'>CEX_T</a><li><a href='ANSIC.html'>ANSIC</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,9 +142,296 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">C_EX << <a href='C_EX.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>CEX_T</h1>
-<p></p>
-<br />C_EX << <a href='C_EX.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+    <div id="tipue_search_content">C_EX << <a href='C_EX.html'>Previous</a> <a href='ANSIC.html'>Next</a> >> ANSIC<br /><h1>CEX_T</h1>
+<p>1</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
+ struct – 3.
+========================= */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+/* ====================
+ struct Mouse.
+==================== */
+struct Mouse
+{
+    int xPos, yPos;
+    char Name[10];
+};
+
+/* ====================
+ Copy Mouse 1
+==================== */
+void cpyMouse1(struct Mouse *tgt, struct Mouse *src)
+{
+    tgt-&gt;xPos = src-&gt;xPos;
+    tgt-&gt;yPos = src-&gt;yPos;
+    strcpy(tgt-&gt;Name, src-&gt;Name);
+}
+
+/* ====================
+ main function.
+==================== */
+int main()
+{
+    struct Mouse myMouse, yourMouse;
+
+    yourMouse.xPos = 10;
+    yourMouse.yPos = 20;
+    strcpy(yourMouse.Name, "Mickey");
+
+    cpyMouse1(&amp;myMouse, &amp;yourMouse);
+
+    printf("Name: %s, X: %d, Y: %d\n", myMouse.Name, myMouse.xPos, myMouse.yPos);
+
+    return 0;
+}</pre>
+<p><img alt="" height="52" src="./../images/ct1.png" width="243"/></p>
+<p>2</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
+ #define 的範例 2.
+========================= */
+#include &lt;stdio.h&gt;
+
+#define TRUE 1
+#define FALSE 0
+#define BOOL int
+
+/* ====================
+如果傳入值大於 10, 則傳回 TRUE
+==================== */
+BOOL is_greater_than_10(int i)
+{
+    if (i &gt; 10)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+/* ====================
+ main function.
+==================== */
+int main()
+{
+    int i;
+    BOOL result;
+
+    printf("Input a number: ");
+
+    // 檢查 scanf 的返回值
+    if (scanf("%d", &amp;i) != 1) {
+        printf("Error reading input.\n");
+        return 1;  // 返回非零值表示錯誤
+    }
+
+    result = is_greater_than_10(i);
+
+    if (result == TRUE)
+        printf("Greater than 10!\n"); /* 大於 10 */
+    else
+        printf("Not greater than 10!\n"); /* 不大於 10 */
+
+    return 0;
+}</pre>
+<p><img alt="" height="63" src="./../images/ct2.png" width="233"/></p>
+<p>3</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ &amp; operator.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int *pointer_a, a;
+    pointer_a = &amp;a;
+    a = 10;
+
+    printf("%d, %d\n", a, *pointer_a);
+
+    return 0;
+}</pre>
+<p><img alt="" height="50" src="./../images/ct3.png" width="235"/></p>
+<p>4</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+pointer – 6
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+char *str = "Eric";
+
+printf("%c\n", *(str + 0)); /* 也可寫 printf("%c", str[0] ); */
+printf("%c\n", *(str + 1)); /* 也可寫 printf("%c", str[1] ); */
+printf("%c\n", *(str + 2)); /* 也可寫 printf("%c", str[2] ); */
+printf("%c\n", *(str + 3)); /* 也可寫 printf("%c", str[3] ); */
+
+return 0;
+}</pre>
+<p><img alt="" height="91" src="./../images/ct4.png" width="233"/></p>
+<p>5</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ 2d array.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int array[3][3];
+    int x, y;
+
+    array[0][0] = 1;
+    array[0][1] = 2;
+    array[0][2] = 3;
+    array[1][0] = 4;
+    array[1][1] = 5;
+    array[1][2] = 6;
+    array[2][0] = 7;
+    array[2][1] = 8;
+    array[2][2] = 9;
+
+    for (x = 0; x &lt; 3; x++)
+    {
+        for (y = 0; y &lt; 3; y++)
+        {
+            printf("%d,", array[x][y]);
+        }
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="40" src="./../images/ct5.png" width="250"/></p>
+<p>6</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ array - 1.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int grade[5]; /* size = 5 的 array */
+    int i;
+
+    grade[0] = 75; /* 1st element */
+    grade[1] = 80; /* 2nd element */
+    grade[2] = 85; /* 3rd element */
+    grade[3] = 70; /* 4th element */
+    grade[4] = 90; /* 5th element */
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        printf("Number %d = %d\n", i, grade[i]);
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="107" src="./../images/ct6.png" width="232"/></p>
+<p>7</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ do - while.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+    i = 0;
+    j = 10; /* 迴圈外先設定初值 */
+
+    do
+    {
+        printf("i = %d, ", i);
+        printf("j = %d\n", j);
+        i++;
+        j++;
+    } while (i &lt; 6); /* 檢查條件的地方 */
+
+    return 0;
+}</pre>
+<p><img alt="" height="128" src="./../images/ct7.png" width="234"/></p>
+<p>8</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+99 乘法.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int x, y;
+
+    for (x = 1; x &lt;= 9; x++)
+    {
+        for (y = 1; y &lt;= 9; y++)
+        {
+            printf("%2d ", x * y);  /* 使用 %2d 以確保數字的對齊性 */
+        }
+        printf("\n");
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="122" src="./../images/ct8.png" width="162"/></p>
+<p>9</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ Program "continue"
+ ==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        if ((i == 1) || (i == 2) || (i == 3))
+        {
+            continue; /* 忽略以後的 program, 回到 for. */
+        }
+        printf("i = %d\n", i);
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="110" src="./../images/ct9.png" width="179"/></p>
+<p>10</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+switch - case 的範例 3.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+char c;
+
+printf("Input a char: ");
+
+// 檢查 scanf 的返回值
+if (scanf("%c", &amp;c) != 1)
+{
+printf("Error reading input.\n");
+return 1; // 返回非零值表示錯誤
+}
+
+switch (c)
+{
+case 'a':
+printf("You pressed a\n");
+break;
+case 'b':
+printf("You pressed b\n");
+break;
+case 'c':
+printf("You pressed c\n");
+break;
+default:
+printf("Unrecognized input\n");
+break;
+}
+
+return 0;
+}</pre>
+<p><img alt="" height="67" src="./../images/ct10.png" width="238"/></p>
+<br />C_EX << <a href='C_EX.html'>Previous</a> <a href='ANSIC.html'>Next</a> >> ANSIC</div>
         
     <!-- footer -->
       <div class="container">
