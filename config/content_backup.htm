@@ -407,9 +407,7 @@ int main() {
     return 0;
 }</pre>
 <p>解釋：</p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">這是一個使用C語言和gd庫來繪製日本國旗的程式。gd是一個用於圖形繪製的函式庫，而這個程式的目的是創建一個PNG圖像，其中包含日本國旗的圖案。
-
-1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
 
 2. `#include &lt;gd.h&gt;`：包含gd函式庫，這是一個用於圖形繪製的函式庫。
 
@@ -543,9 +541,7 @@ gdImageFilledPolygon(img, points, 10, color);
 } </pre>
 <p>解釋：</p>
 <p></p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">這是一個使用C語言和gd圖形函式庫來繪製中國國旗的程式。程式首先創建了一個300x200的真彩色圖像，然後繪製了中國國旗的圖案，最後將圖像保存為PNG文件。
-
-1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
 
 2. `#include &lt;gd.h&gt;`：包含gd函式庫，這是一個用於圖形繪製的函式庫。
 
@@ -744,9 +740,7 @@ gdImageFilledRectangle(img, center_x + 1.5 * cross_width, 0, center_x - 1.5 * cr
 gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
 }</pre>
 <p>解釋：</p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">這是一個使用C語言和gd圖形函式庫來繪製英國國旗的程式。程式首先創建了一個1200x600的真彩色圖像，然後繪製了英國國旗的圖案，最後將圖像保存為PNG文件。
-
-1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
 
 2. `#include &lt;gd.h&gt;`：包含gd函式庫，這是一個用於圖形繪製的函式庫。
 
@@ -832,8 +826,7 @@ gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y
 <p></p>
 <p><img alt="" height="200" src="/images/uk_flag.png" width="400"/></p>
 <p></p>
-<p></p>
-<h1>w8~9</h1>
+<p></p><h1>w8~9</h1>
 <p>這兩周講解使用近端來編輯倉儲，內容大多繁雜，就算記住了操作的流程，<span>我完全不知道背後的意思是甚麼，</span>再加上近端編輯只能在學校使用，原因是網路設定上需要使用學校的固定ip，這樣大大限制了能使用的地點。這兩周上下來，只有感受到一大票內容是快速帶過，連想都來不及想就進入了下一階段，這樣是真的學不好。</p>
 <h1>w10~11</h1>
 <p>這兩周在講解我們使用replit、s1511、localhost，哪一種方式讓自己方便，在多方嘗試下來，我還是覺得我對於使用replit上更加熟悉，首先它本身在設計上就以為主方便，但唯一美中不足的點是他在使用時需要網路，且聽說明年會進行更改到時要維護倉儲只能選擇更加麻煩的<span>s1511和localhost來使用。兩周下來感覺我們之前所學的只是冰山一角的東西，replit對我來說可能有些東西也是不熟，但是現在又多了s1511和localhost，讓我自己感覺到自己的學識淺薄，不管是一些專業術語的英文還是整組的程式，也是大多都看不懂，整個上下來是真的好難心態疲勞。</span></p>
@@ -1471,11 +1464,53 @@ int main() {
     return 0;
 }
 </pre>
-<p></p>
-<p></p>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`: 引入標準輸入/輸出函式庫。
+
+2. `#define M1 2.0`, `#define M2 3.0`, `#define K1 0.5`, `#define K2 1.0`, `#define K3 15.0`, `#define C1 0.25`, `#define C2 0.33`, `#define C3 0.5`: 定義了系統的一些參數，包括質量（M1、M2）、彈簧常數（K1、K2、K3）和阻尼常數（C1、C2、C3）。
+
+3. `void calculate_derivative(double t, double state[4], double derivative[4]) {`: 定義了一個函式`calculate_derivative`，用於計算狀態的導數。該函式接受時間`t`、當前狀態`state`和計算得到的導數`derivative`。
+
+4. `derivative[0] = state[2];`, `derivative[1] = state[3];`: 賦值給導數，其中`derivative[0]`和`derivative[1]`分別等於速度`v1`和`v2`。
+
+5. `double delta_x = state[0] - state[1];`: 計算兩質點之間的位移。
+
+6. `derivative[2] = -(K1 * state[0] + K2 * delta_x) / M1;`: 計算質點1速度`v1`的導數。
+
+7. `derivative[3] = -(K3 * state[1] - K2 * delta_x) / M2;`: 計算質點2速度`v2`的導數。
+
+8. `void euler_method(double t_initial, double t_final, double dt, double initial_conditions[4]) {`: 定義了一個使用歐拉法求解系統的函式`euler_method`。它接受初始時間、最終時間、時間步長和初始條件。
+
+9. `FILE *output_file;`, `output_file = fopen("trajectory_data.txt", "w");`: 定義了一個文件指針`output_file`，並打開了一個名為"trajectory_data.txt"的文件，用於存儲計算的軌跡數據。
+
+10. `double t = t_initial;`, `double state[4];`: 初始化時間`t`和狀態`state`。
+
+11. `for (int i = 0; i &lt; 4; ++i) { state[i] = initial_conditions[i]; }`: 將初始條件複製到狀態中。
+
+12. `while (t &lt;= t_final) {`: 進入時間迴圈，計算直到達到最終時間。
+
+13. `fprintf(output_file, "%f %f %f %f %f\n", t, state[0], state[1], state[2], state[3]);`: 將當前時間和狀態寫入文件。
+
+14. `calculate_derivative(t, state, derivative);`: 計算當前時間的導數。
+
+15. `for (int i = 0; i &lt; 4; ++i) { state[i] += derivative[i] * dt; }`: 使用歐拉法更新狀態。
+
+16. `t += dt;`: 更新時間。
+
+17. `fclose(output_file);`: 關閉文件。
+
+18. `int main() {`: 定義`main`函式。
+
+19. `double initial_conditions[4] = {1.0, -0.5, 0.0, 0.0};`: 定義初始條件，包括兩個質點的初始位置和速度。
+
+20. `double t_initial = 0.0;`, `double t_final = 10.0;`, `double dt = 0.01;`: 定義時間參數，包括初始時間、最終時間和時間步長。
+
+21. `euler_method(t_initial, t_final, dt, initial_conditions);`: 調用`euler_method`函式求解系統。
+
+22. `return 0;`: 返回0，表示程序運行成功。</pre>
+<p><br/><br/></p>
 <p><img alt="" height="225" src="/images/trajectory_plot.png" width="301"/><br/><br/></p>
-<p></p>
-<h1>C_EX</h1>
+<p></p><h1>C_EX</h1>
 <p>1</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
@@ -1491,6 +1526,28 @@ printf("a = %3.1f, b = %3.1f, c = %d\n", a, b, c);
 
 return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這一行包含了標準的輸入/輸出庫，允許你使用 `printf` 等函數。
+
+2. `int main()`：這一行宣告了主函數，它是任何 C 程式的進入點。
+
+3. `{`：開始主函數的主體的大括號。
+
+4. `float a = 0.5;`：宣告一個 `float` 型別的變數 `a`，並初始化為 `0.5`。
+
+5. `double b = 1.2;`：宣告一個 `double` 型別（雙精度浮點數）的變數 `b`，並初始化為 `1.2`。
+
+6. `int c = 3;`：宣告一個 `int` 型別（整數）的變數 `c`，並初始化為 `3`。
+
+7. `b = b + a + c;`：通過將當前的 `b` 值、`a` 和 `c` 相加，更新了 `b` 的值。這相當於 `b = 1.2 + 0.5 + 3`。
+
+8. `printf("a = %3.1f, b = %3.1f, c = %d\n", a, b, c);`：使用 `printf` 函數將 `a`、`b` 和 `c` 的值輸出到螢幕。格式指定符 `%3.1f` 用於以 3 個字符的總寬度打印浮點數（`a` 和 `b`）並在小數點後打印一位。`%d` 用於打印整數值（`c`）。`\n` 代表換行字符，將光標移到下一行。
+
+9. `return 0;`：表示程序已成功執行，並將 0 返回給操作系統。
+
+10. `}`：結束主函數主體的大括號。
+
+總之，這個程式宣告和初始化了三個變數（`a`、`b` 和 `c`），執行了一個計算以更新 `b` 的值，然後將 `a`、`b` 和 `c` 的值打印到螢幕上，最後返回 0 給操作系統。</pre>
 <p><img alt="" height="65" src="/images/1.png" width="304"/></p>
 <p>2</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -1511,6 +1568,34 @@ int main()
     return 0;
 }
 </pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `/* ====================`：這是多行註釋的開始，標明了註釋區塊的起始。
+
+2. `字元範例 1`：這是註釋，提供了與程式碼相關的說明或標題。
+
+3. `==================== */`：多行註釋的結束。
+
+4. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，它允許使用 `printf` 和其他輸出功能。
+
+5. `int main()`：主函式的開始，它是每個 C 程式的進入點。
+
+6. `{`：主函式的主體開始。
+
+7. `char x, y;`：宣告兩個 `char` 型別的變數 `x` 和 `y`，這些變數將用於存儲字元。
+
+8. `x = 'a';`：將字元 `'a'` 賦值給變數 `x`。
+
+9. `y = (char)97;`：將 ASCII 值 `97` 轉換為 `char` 型別，然後將其賦值給變數 `y`。
+
+10. `/* 輸出 x, y, x, 最後一個是以 ASCII 值顯示 y */`：這是一條註釋，描述了接下來的 `printf` 語句的目的。
+
+11. `printf("x = %c, y = %c, ASCII of y = %d", x, y, y);`：使用 `printf` 函式將 `x`、`y` 和 `y` 的 ASCII 值輸出到螢幕上。`%c` 用於打印字符，`%d` 用於打印整數。
+
+12. `return 0;`：表示程序已成功執行，返回 0 給操作系統。
+
+13. `}`：主函式的主體結束。
+
+總的來說，這個程式碼演示了如何宣告、賦值和輸出字符型變數 `x` 和 `y`，以及如何使用 ASCII 值。</pre>
 <p><img alt="" height="47" src="/images/2.png" width="397"/></p>
 <p>3</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1526,6 +1611,28 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，它允許使用 `printf` 和其他輸出功能。
+
+2. `int main()`：主函式的開始，它是每個 C 程式的進入點。
+
+3. `{`：主函式的主體開始。
+
+4. `int a = 64;`：宣告一個整數變數 `a` 並初始化為 64。
+
+5. `int b = 0x40;`：宣告一個整數變數 `b` 並初始化為 0x40，這表示以十六進制表示法給變數 `b` 賦值。在這種情況下，`0x40` 的十進制等於 64。
+
+6. `long c = 64L;`：宣告一個長整數變數 `c` 並初始化為 64L。這裡使用 `L` 後綴表示這是一個長整數。
+
+7. `// 打印变量的值`：這是一條單行註釋，描述了接下來 `printf` 語句的目的。
+
+8. `printf("%d, %d, %ld", a, b, c);`：使用 `printf` 函式將變數 `a`（按十進制顯示）、`b`（按十進制顯示）、`c`（按長整數顯示）的值輸出到螢幕上。格式字符串 `%d` 表示將整數以十進制形式輸出，`%ld` 表示將長整數以十進制形式輸出。
+
+9. `return 0;`：表示程序已成功執行，返回 0 給操作系統。
+
+10. `}`：主函式的主體結束。
+
+總的來說，這個程式碼演示了如何宣告、初始化和輸出整數變數，同時展示了不同進制表示法（十進制和十六進制）。</pre>
 <p><img alt="" height="53" src="/images/3.png" width="274"/></p>
 <p>4</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1557,6 +1664,34 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，允許使用 `printf` 函式。
+
+2. `int main()`：主函式的開始，它是每個 C 程式的進入點。
+
+3. `{`：主函式的主體開始。
+
+4. `int a = 10, b = 5;`：宣告並初始化兩個整數變數 `a` 和 `b` 分別為 10 和 5。
+
+5. `// 第一组比较`：這是一條單行註釋，說明接下來的程式碼將執行第一組比較。
+
+6. `printf("a == b is %d\n", a == b);`：使用 `printf` 函式輸出 `a == b` 的結果。 `%d` 是一個格式化占位符，用來輸出整數。在這裡，它將被 `a == b` 的值取代。
+
+7. 類似地，後續的 `printf` 語句用於輸出其他比較運算的結果，包括 `a &gt; b`、`a &lt; b`、`a &gt;= b`、`a &lt;= b`、`a != b`。
+
+8. `printf("\n");`：輸出一個換行符號，使輸出更易讀。
+
+9. `b = 10;`：修改變數 `b` 的值為 10。
+
+10. `// 第二组比较`：這是一條單行註釋，說明接下來的程式碼將執行第二組比較。
+
+11. 後續的 `printf` 語句再次執行第二組比較，這次使用修改後的 `b` 值。
+
+12. `return 0;`：表示程序已成功執行，返回 0 給操作系統。
+
+13. `}`：主函式的主體結束。
+
+總的來說，這個程式碼演示了使用比較運算符（==、&gt;、&lt;、&gt;=、&lt;=、!=）進行變數之間的比較，並輸出結果。</pre>
 <p><br/><img alt="" height="235" src="/images/4.png" width="239"/></p>
 <p>5</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1573,9 +1708,46 @@ printf("%d\n", !a); // 逻辑非运算，a为真，所以输出0
 a = 0;
 printf("%d\n", !a); // 逻辑非运算，a为假，所以输出1
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 函式。
+
+2. `void main()`：主函式的開始。應注意，標準中 `main` 函式的返回類型應該是 `int`，而不是 `void`。正確的主函式應該是 `int main()`，而不是 `void main()`。
+
+3. `{`：主函式的主體開始。
+
+4. `int a;`：宣告一個整數變數 `a`。
+
+5. `// 第一次输出`：這是一條單行註釋，用於標識接下來的程式碼將執行第一次輸出。
+
+6. `a = 3;`：將變數 `a` 的值設置為 3。
+
+7. `printf("%d\n", !a);`：使用 `printf` 函式，輸出 `!a` 的結果。`!` 是逻辑非運算符，將 `a` 的值取反。由於 `a` 是非零值（真），`!a` 為假（0）。因此，這裡輸出 `0`，接著換行。
+
+8. `// 第二次输出`：這是一條單行註釋，用於標識接下來的程式碼將執行第二次輸出。
+
+9. `a = 0;`：將變數 `a` 的值設置為 0。
+
+10. `printf("%d\n", !a);`：再次使用 `printf` 函式，輸出 `!a` 的結果。由於 `a` 是零值（假），`!a` 為真（1）。因此，這裡輸出 `1`，接著換行。
+
+11. `}`：主函式的主體結束。
+
+總的來說，這個程式碼演示了逻辑非運算符（`!`）的使用，它將非零值取反為零，並將零值取反為非零。</pre>
 <p><img alt="" height="63" src="/images/5.png" width="277"/></p>
 <p>6</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+void main()
+{
+    char a;
+
+    // 使用 %zu 格式说明符输出 size_t 类型
+    printf("The size of int is %zu\n", sizeof(int));
+
+    // 使用 %zu 格式说明符输出 size_t 类型
+    printf("The size of char a is %zu\n", sizeof(a));
+}</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
 void main()
 {
@@ -1612,6 +1784,38 @@ int main()
     printf("8*4 的面积是 %d", a);
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 函式。
+
+2. `int rect(int x, int y)`：這是一個函式的宣告，該函式名稱為 `rect`，接受兩個整數參數 `x` 和 `y`。函式的目的是計算長方形的面積。
+
+3. `{`：函式 `rect` 的主體開始。
+
+4. `int result;`：宣告一個整數變數 `result`，用於存儲計算的結果。
+
+5. `result = x * y;`：將 `result` 的值設置為 `x` 與 `y` 的乘積，即計算長方形的面積。
+
+6. `return result;`：返回計算的結果。
+
+7. `}`：函式 `rect` 的主體結束。
+
+8. `int main()`：主函式的宣告。這是程式的起點。
+
+9. `{`：主函式的主體開始。
+
+10. `int x = 8, y = 4;`：宣告兩個整數變數 `x` 和 `y`，並將它們的值分別初始化為 8 和 4。
+
+11. `int a;`：宣告一個整數變數 `a`，用於存儲呼叫 `rect` 函式後的結果。
+
+12. `a = rect(x, y);`：呼叫 `rect` 函式，將 `x` 和 `y` 的值作為參數傳遞給它，然後將計算結果存儲在變數 `a` 中。
+
+13. `printf("8*4 的面积是 %d", a);`：使用 `printf` 函式將計算結果輸出到控制台，顯示 `8*4 的面积是` 並輸出變數 `a` 的值。
+
+14. `return 0;`：主函式返回 0，這表示程序成功結束。
+
+15. `}`：主函式的主體結束。
+
+總的來說，這個程式碼計算並輸出一個長方形的面積，長和寬分別為 8 和 4。</pre>
 <p><img alt="" height="52" src="/images/7.png" width="316"/></p>
 <p>8</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1631,6 +1835,37 @@ float result;
 result = 3.14159 * (double)1001 * r;
 return ( result );
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 函式。
+
+2. `float circle(int r);`：這是 `circle` 函式的原型宣告。它告訴編譯器有一個名為 `circle` 的函式，接受一個整數參數 `r`，並返回一個浮點數。
+
+3. `void main()`：主函式的宣告。注意，正確的返回型別應該是 `int`，而不是 `void`，因為 `main` 函式應該返回一個整數值。
+
+4. `{`：主函式的主體開始。
+
+5. `float answer;`：宣告一個浮點數變數 `answer`，用於存儲 `circle` 函式的計算結果。
+
+6. `answer = circle(8);`：呼叫 `circle` 函式，將整數值 8 作為參數傳遞給它，然後將計算結果存儲在 `answer` 中。
+
+7. `printf(" 圓周長度是 %f", answer);`：使用 `printf` 函式將計算結果輸出到控制台，顯示 " 圓周長度是 " 並輸出 `answer` 的值。
+
+8. `}`：主函式的主體結束。
+
+9. `float circle(int r)`：`circle` 函式的定義開始。這個函式接受一個整數參數 `r`，返回一個浮點數。
+
+10. `{`：`circle` 函式的主體開始。
+
+11. `float result;`：宣告一個浮點數變數 `result`，用於存儲計算的結果。
+
+12. `result = 3.14159 * (double)1001 * r;`：計算圓的周長。這裡有一個奇怪的地方，似乎將 `(double)1001` 乘以 `r`。這可能是一個錯誤，因為它看起來並不符合計算圓周長的公式。
+
+13. `return result;`：返回計算的結果。
+
+14. `}`：`circle` 函式的主體結束。
+
+總的來說，這個程式碼存在一些問題。特別是在計算圓周長的部分，乘以 `(double)1001` 的目的似乎並不明確，可能是一個錯誤。
+</pre>
 <p><img alt="" height="51" src="/images/8.png" width="386"/></p>
 <p>9</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1653,6 +1888,40 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 和 `scanf` 函式。
+
+2. `int main()`：主函式的宣告，程式的執行從這裡開始。
+
+3. `{`：主函式的主體開始。
+
+4. `char ch;`：宣告一個 `char` 類型的變數 `ch`，用於存儲從用戶輸入讀取的字符。
+
+5. `printf("输入一个字符：");`：使用 `printf` 函式輸出提示信息，要求用戶輸入一個字符。
+
+6. `if (scanf(" %c", &amp;ch) != 1)`：使用 `scanf` 函式讀取用戶輸入的字符。`%c` 是格式化輸入指示符，用於讀取字符。注意 `%c` 前的空格，它的作用是吸收任何前面的空白字符（包括換行符、空格等），以防止之前的輸入影響。`!= 1` 用於檢查 `scanf` 的返回值，確保成功讀取了一個字符。
+
+7. `{`：如果 `if` 條件成立，進入這個區塊。
+
+8. `printf("读取字符失败\n");`：在控制台上輸出一條錯誤信息，表示讀取字符失敗。
+
+9. `return 1;`：返回一個非零值，表示程序異常結束。這是一種處理錯誤的方式，通常在發現錯誤時提前終止程序。
+
+10. `}`：結束 `if` 區塊。
+
+11. `if (ch == 'a')`：檢查讀取的字符是否等於小寫字母 'a'。
+
+12. `{`：如果 `if` 條件成立，進入這個區塊。
+
+13. `printf("您按下了 'a'\n");`：在控制台上輸出一條消息，表示用戶按下了 'a'。
+
+14. `}`：結束 `if` 區塊。
+
+15. `return 0;`：返回零，表示程序正常結束。
+
+16. `}`：主函式的主體結束。
+
+總的來說，這個程式提示用戶輸入一個字符，然後檢查是否為小寫字母 'a'，如果是，則輸出相應的消息。程式碼中有錯誤處理機制，當讀取字符失敗時，會輸出錯誤消息並提前終止程序。</pre>
 <p><img alt="" height="62" src="/images/9.png" width="272"/></p>
 <p>10</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1684,6 +1953,50 @@ void main()
         }
     }
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 和 `scanf` 函式。
+
+2. `void main()`：主函式的宣告，注意應使用 `int main()` 而不是 `void main()`。修正方式將 `void` 改為 `int`。
+
+3. `{`：主函式的主體開始。
+
+4. `int i;`：宣告一個整數變數 `i`，用於存儲用戶輸入的數字。
+
+5. `printf("100：");`：使用 `printf` 函式輸出提示信息，提示用戶輸入一個整數。
+
+6. `scanf("%d", &amp;i);`：使用 `scanf` 函式讀取用戶輸入的整數。`%d` 是格式化輸入指示符，用於讀取整數。
+
+7. `if (i &lt; 100)`：判斷 `i` 是否小於 100。
+
+8. `{`：如果 `if` 條件成立，進入這個區塊。
+
+9. `printf("i &lt; 100\n");`：在控制台上輸出一條消息，表示 `i` 小於 100。
+
+10. `}`：結束 `if` 區塊。
+
+11. `else`：如果 `if` 條件不成立，進入 `else` 區塊。
+
+12. `{`：`else` 區塊的開始。
+
+13. `if ((i &gt;= 100) &amp;&amp; (i &lt; 200))`：這是一個嵌套的 `if`，檢查 `i` 是否大於等於 100 且小於 200。
+
+14. `{`：如果嵌套 `if` 條件成立，進入這個區塊。
+
+15. `printf("i &gt;= 100 且 i &lt; 200\n");`：在控制台上輸出一條消息，表示 `i` 大於等於 100 且小於 200。
+
+16. `}`：結束嵌套 `if` 區塊。
+
+17. `else`：如果嵌套 `if` 條件不成立，進入 `else` 區塊。
+
+18. `{`：`else` 區塊的開始。
+
+19. `printf("i &gt;= 200\n");`：在控制台上輸出一條消息，表示 `i` 大於等於 200。
+
+20. `}`：結束 `else` 區塊。
+
+21. `}`：結束主函式的主體。
+
+請注意，我們建議修正 `void main()` 為 `int main()`，這是標準的主函式形式。</pre>
 <p><img caption="false" height="95" src="/images/10.png" width="430"/></p>
 <p>看似有問題</p>
 <p>11</p>
@@ -1726,6 +2039,38 @@ func[ i ]( ); /* 執行! */
 }
 return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 和 `scanf` 函式。
+
+2. `void Hello(void)`：定義一個名為 `Hello` 的函式，該函式不接受任何參數，並在控制台上輸出 " Hello"。
+
+3. `void World(void)`：定義一個名為 `World` 的函式，該函式不接受任何參數，並在控制台上輸出 " World"。
+
+4. `int main()`：主函式的宣告。
+
+5. `void (*func[3])(void);`：宣告一個包含三個元素的函式指針陣列 `func`。這個陣列中的每個元素都是一個指向不接受參數且返回 `void` 的函式的指針。
+
+6. `int i = 0;`：宣告一個整數變數 `i`，並初始化為 0。
+
+7. `func[0] = Hello;`：將陣列中的第一個元素設定為指向 `Hello` 函式的指針。
+
+8. `func[1] = World;`：將陣列中的第二個元素設定為指向 `World` 函式的指針。
+
+9. `while(1)`：進入一個無窮迴圈。
+
+10. `printf("Input a number between 0 and 1 : ");`：在控制台上輸出提示消息，要求用戶輸入介於 0 和 1 之間的數字。
+
+11. `scanf("%d", &amp;i);`：使用 `scanf` 函式讀取用戶輸入的整數並將其存儲在變數 `i` 中。
+
+12. `if ((i &gt;= 2) || (i &lt; 0))`：檢查 `i` 是否大於等於 2 或小於 0。
+
+13. `break;`：如果條件成立，退出無窮迴圈。
+
+14. `else`：如果條件不成立，執行以下區塊。
+
+15. `func[i]();`：根據用戶輸入的數字選擇要執行的函式，由於函式指針陣列的設定，它將呼叫 `Hello` 或 `World` 函式。
+
+16. `return 0;`：主函式的返回值，表示程式執行成功結束。</pre>
 <p><img alt="" height="273" src="/images/11.png" width="302"/><br/>12</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
@@ -1770,6 +2115,38 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 和 `scanf` 函式。
+
+2. `void Hello(void)`：定義一個名為 `Hello` 的函式，該函式不接受任何參數，並在控制台上輸出 "Hello"。
+
+3. `void World(void)`：定義一個名為 `World` 的函式，該函式不接受任何參數，並在控制台上輸出 "World"。
+
+4. `int main()`：主函式的宣告。
+
+5. `void (*func[3])(void);`：宣告一個包含三個元素的函式指針陣列 `func`。這個陣列中的每個元素都是一個指向不接受參數且返回 `void` 的函式的指針。
+
+6. `int i = 0;`：宣告一個整數變數 `i`，並初始化為 0。
+
+7. `func[0] = Hello;`：將陣列中的第一個元素設定為指向 `Hello` 函式的指針。
+
+8. `func[1] = World;`：將陣列中的第二個元素設定為指向 `World` 函式的指針。
+
+9. `while (1)`：進入一個無窮迴圈。
+
+10. `printf("Input a number between 0 and 1: ");`：在控制台上輸出提示消息，要求用戶輸入介於 0 和 1 之間的數字。
+
+11. `scanf("%d", &amp;i);`：使用 `scanf` 函式讀取用戶輸入的整數並將其存儲在變數 `i` 中。
+
+12. `if (i &gt;= 2 || i &lt; 0)`：檢查 `i` 是否大於等於 2 或小於 0。
+
+13. `break;`：如果條件成立，退出無窮迴圈。
+
+14. `else`：如果條件不成立，執行以下區塊。
+
+15. `func[i]();`：根據用戶輸入的數字選擇要執行的函式，由於函式指針陣列的設定，它將呼叫 `Hello` 或 `World` 函式。
+
+16. `return 0;`：主函式的返回值，表示程式執行成功結束。</pre>
 <p><img alt="" height="118" src="/images/12.png" width="484"/></p>
 <p>13</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1821,6 +2198,40 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 和 `scanf` 函式。
+
+2. `void Hello(void)`：定義一個名為 `Hello` 的函式，該函式不接受任何參數，並在控制台上輸出 "Hello"。
+
+3. `void World(void)`：定義一個名為 `World` 的函式，該函式不接受任何參數，並在控制台上輸出 "World"。
+
+4. `int main()`：主函式的宣告。
+
+5. `void (*func[3])(void);`：宣告一個包含三個元素的函式指針陣列 `func`。這個陣列中的每個元素都是一個指向不接受參數且返回 `void` 的函式的指針。
+
+6. `int i = 0;`：宣告一個整數變數 `i`，並初始化為 0。
+
+7. `func[0] = Hello;`：將陣列中的第一個元素設定為指向 `Hello` 函式的指針。
+
+8. `func[1] = World;`：將陣列中的第二個元素設定為指向 `World` 函式的指針。
+
+9. `while (1)`：進入一個無窮迴圈。
+
+10. `printf("Input a number between 0 and 1: ");`：在控制台上輸出提示消息，要求用戶輸入介於 0 和 1 之間的數字。
+
+11. `if (scanf("%d", &amp;i) != 1)`：檢查 `scanf` 函式的返回值，確保成功讀取一個整數。如果輸入不是有效整數，輸出錯誤消息，並結束迴圈。
+
+12. `break;`：如果輸入不是有效整數，退出無窮迴圈。
+
+13. `if (i &gt;= 2 || i &lt; 0)`：檢查 `i` 是否大於等於 2 或小於 0。
+
+14. `break;`：如果條件成立，退出無窮迴圈。
+
+15. `else`：如果條件不成立，執行以下區塊。
+
+16. `func[i]();`：根據用戶輸入的數字選擇要執行的函式，由於函式指針陣列的設定，它將呼叫 `Hello` 或 `World` 函式。
+
+17. `return 0;`：主函式的返回值，表示程式執行成功結束。</pre>
 <p><img alt="" height="49" src="/images/13.png" width="401"/></p>
 <p>22</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -1855,6 +2266,34 @@ int main() {
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，使你能夠使用 `printf` 函式。
+
+2. `char *Hello = "Hello";`：宣告一個指向字元的指標 `Hello`，指向包含字串 "Hello" 的常數字串。
+
+3. `char *World = "World";`：宣告一個指向字元的指標 `World`，指向包含字串 "World" 的常數字串。
+
+4. `char *GoodBye = "Good Bye";`：宣告一個指向字元的指標 `GoodBye`，指向包含字串 "Good Bye" 的常數字串。
+
+5. `char *StrArray[3];`：宣告一個包含三個元素的字元指標陣列 `StrArray`。
+
+6. `char **Str;`：宣告一個指向指標的指標 `Str`。
+
+7. `int i;`：宣告一個整數變數 `i`。
+
+8. `Str = StrArray;`：將指標 `Str` 設定為指向陣列 `StrArray` 的第一個元素。
+
+9. `StrArray[0] = Hello;`：將陣列 `StrArray` 的第一個元素設定為指向 "Hello" 字串的指標。
+
+10. `StrArray[1] = World;`：將陣列 `StrArray` 的第二個元素設定為指向 "World" 字串的指標。
+
+11. `StrArray[2] = GoodBye;`：將陣列 `StrArray` 的第三個元素設定為指向 "Good Bye" 字串的指標。
+
+12. `for (i = 0; i &lt; 3; i++) { printf("%s ", StrArray[i]); }`：使用陣列索引逐一輸出字串 "Hello", "World", "Good Bye"。
+
+13. `Str = StrArray;`：將指標 `Str` 重新設定為指向陣列 `StrArray` 的第一個元素。
+
+14. `for (i = 0; i &lt; 3; i++) { printf("%s ", *Str); Str++; }`：使用指標算術逐一輸出字串 "Hello", "World", "Good Bye"，這次使用指標 `Str` 和後置遞增運算子。</pre>
 <p><img alt="" height="45" src="/images/22.png" width="507"/></p>
 <p>23</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1873,8 +2312,23 @@ scanf_result = scanf("%f", &amp;this_is_a_number2);
 
 return 0;
 }</pre>
-<p><img alt="" height="70" src="/images/23.png" width="254"/></p>
-<h1>CEX_T</h1>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：這是包含標準輸入/輸出庫的指令，允許你使用 `scanf` 和其他相關的輸入/輸出函式。
+
+2. `int main()`：這是主函式的宣告，程式的執行從這裡開始。
+
+3. `float this_is_a_number1, this_is_a_number2;`：宣告兩個浮點數變數 `this_is_a_number1` 和 `this_is_a_number2`，這裡用來存放從用戶輸入中讀取的數字。
+
+4. `int scanf_result;`：宣告一個整數變數 `scanf_result`，這是一個虛擬變數，用來捕獲 `scanf` 函數的返回值，確保成功讀取輸入。
+
+5. `scanf_result = scanf("%f", &amp;this_is_a_number1);`：使用 `scanf` 函數從標準輸入讀取浮點數，格式化字符串 `%f` 表示輸入的是浮點數，`&amp;this_is_a_number1` 將輸入的值存儲到變數 `this_is_a_number1` 中。`scanf_result` 用於檢查是否成功讀取輸入。
+
+6. `scanf_result = scanf("%f", &amp;this_is_a_number2);`：同上，讀取第二個浮點數。
+
+7. `/* Your code here */`：這是一個占位註解，表示這裡是你自己的程式碼區塊。你可以在這裡進行任何你需要對這兩個浮點數進行的操作。
+
+8. `return 0;`：這表示主函式正常結束，並將返回值設為0。</pre>
+<p><img alt="" height="70" src="/images/23.png" width="254"/></p><h1>CEX_T</h1>
 <p>1</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
  struct – 3.
@@ -1918,6 +2372,36 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，允許使用 `printf` 和其他相關的輸出函式。
+
+2. `#include &lt;string.h&gt;`：包含字串操作相關的標頭文件，允許使用 `strcpy` 函式來複製字串。
+
+3. `struct Mouse`：定義了一個結構體 `Mouse`，包含三個成員變數：`xPos`（代表滑鼠的X座標）、`yPos`（代表滑鼠的Y座標）、`Name`（代表滑鼠的名字，以字元陣列形式存儲）。
+
+4. `void cpyMouse1(struct Mouse *tgt, struct Mouse *src)`：定義了一個函式 `cpyMouse1`，用於將來源滑鼠結構的數據複製到目標滑鼠結構。函式接受兩個結構體指針作為參數，即目標滑鼠結構和來源滑鼠結構。
+
+5. `tgt-&gt;xPos = src-&gt;xPos;`：將來源滑鼠的X座標複製到目標滑鼠。
+
+6. `tgt-&gt;yPos = src-&gt;yPos;`：將來源滑鼠的Y座標複製到目標滑鼠。
+
+7. `strcpy(tgt-&gt;Name, src-&gt;Name);`：使用 `strcpy` 函式將來源滑鼠的名字複製到目標滑鼠。這裡假設 `Name` 是以字元陣列形式表示的名字。
+
+8. `int main()`：主函式的開始。
+
+9. `struct Mouse myMouse, yourMouse;`：宣告了兩個 `Mouse` 結構的變數 `myMouse` 和 `yourMouse`。
+
+10. `yourMouse.xPos = 10;`：為 `yourMouse` 的X座標賦值為10。
+
+11. `yourMouse.yPos = 20;`：為 `yourMouse` 的Y座標賦值為20。
+
+12. `strcpy(yourMouse.Name, "Mickey");`：將字串 "Mickey" 複製到 `yourMouse` 的名字中。
+
+13. `cpyMouse1(&amp;myMouse, &amp;yourMouse);`：調用函式 `cpyMouse1`，將 `yourMouse` 的內容複製到 `myMouse`。
+
+14. `printf("Name: %s, X: %d, Y: %d\n", myMouse.Name, myMouse.xPos, myMouse.yPos);`：使用 `printf` 函式輸出 `myMouse` 結構的內容，包括名字、X座標和Y座標。
+
+15. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="52" src="/images/ct1.png" width="243"/></p>
 <p>2</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
@@ -1965,6 +2449,34 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，允許使用 `printf` 和其他相關的輸出函式。
+
+2. `#define TRUE 1`：使用 `#define` 指令定義常數 `TRUE`，其值為1。
+
+3. `#define FALSE 0`：使用 `#define` 指令定義常數 `FALSE`，其值為0。
+
+4. `#define BOOL int`：使用 `#define` 指令定義 `BOOL` 為 `int`，將 `BOOL` 視為整數型別。
+
+5. `BOOL is_greater_than_10(int i)`：定義了一個函式 `is_greater_than_10`，接受一個整數參數 `i`，返回 `BOOL` 型別（實際上是 `int`）。如果 `i` 大於10，則返回 `TRUE`，否則返回 `FALSE`。
+
+6. `int main()`：主函式的開始。
+
+7. `int i;`：宣告一個整數變數 `i` 來接受用戶輸入的數字。
+
+8. `BOOL result;`：宣告一個 `BOOL`（實際上是 `int`）型別的變數 `result` 來存儲函式的返回值。
+
+9. `printf("Input a number: ");`：使用 `printf` 函式輸出提示，要求用戶輸入一個數字。
+
+10. `if (scanf("%d", &amp;i) != 1)`：使用 `scanf` 函式讀取用戶輸入的數字，檢查其返回值，如果不等於1，表示讀取失敗，輸出錯誤消息，並返回1（非零值表示錯誤）。
+
+11. `result = is_greater_than_10(i);`：調用函式 `is_greater_than_10`，將用戶輸入的數字傳入，並將返回值存入 `result`。
+
+12. `if (result == TRUE)`：檢查 `result` 是否等於 `TRUE`，如果是，表示輸入的數字大於10，輸出 "Greater than 10!"。
+
+13. `else`：如果條件不滿足，表示輸入的數字不大於10，輸出 "Not greater than 10!"。
+
+14. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="63" src="/images/ct2.png" width="233"/></p>
 <p>3</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -1982,6 +2494,19 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，允許使用 `printf` 和其他相關的輸出函式。
+
+2. `int *pointer_a, a;`：宣告了一個整數指標 `pointer_a` 和一個整數變數 `a`。
+
+3. `pointer_a = &amp;a;`：將變數 `a` 的地址賦值給指標 `pointer_a`。`&amp;` 運算符用於取得變數的地址。
+
+4. `a = 10;`：將變數 `a` 的值設置為10。
+
+5. `printf("%d, %d\n", a, *pointer_a);`：使用 `printf` 函式輸出變數 `a` 的值和指標 `pointer_a` 所指向的地址的值。`*` 運算符用於解引用指標，獲取該地址存儲的值。
+
+6. `return 0;`：主函式正常結束，返回值為0。
+</pre>
 <p><img alt="" height="50" src="/images/ct3.png" width="235"/></p>
 <p>4</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2000,6 +2525,23 @@ printf("%c\n", *(str + 3)); /* 也可寫 printf("%c", str[3] ); */
 
 return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，允許使用 `printf` 和其他相關的輸出函式。
+
+2. `int main()`：定義主函式。
+
+3. `char *str = "Eric";`：宣告一個指向字符的指標 `str`，並將其指向一個包含字符串 "Eric" 的字符陣列。在C中，字符串實際上是以null結尾的字符陣列。
+
+4. `printf("%c\n", *(str + 0));`：使用指標的算術運算，輸出指向 `str` 開始的字符陣列的第一個元素，即 'E'。也可以寫成 `printf("%c\n", str[0]);`。
+
+5. `printf("%c\n", *(str + 1));`：輸出 `str` 的第二個元素，即 'r'。也可以寫成 `printf("%c\n", str[1]);`。
+
+6. `printf("%c\n", *(str + 2));`：輸出 `str` 的第三個元素，即 'i'。也可以寫成 `printf("%c\n", str[2]);`。
+
+7. `printf("%c\n", *(str + 3));`：輸出 `str` 的第四個元素，即 'c'。也可以寫成 `printf("%c\n", str[3]);`。
+
+8. `return 0;`：主函式正常結束，返回值為0。
+</pre>
 <p><img alt="" height="91" src="/images/ct4.png" width="233"/></p>
 <p>5</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2032,6 +2574,25 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，允許使用 `printf` 和其他相關的輸出函式。
+
+2. `int main()`：定義主函式。
+
+3. `int array[3][3];`：宣告一個3x3的整數二維陣列 `array`。
+
+4. `int x, y;`：宣告整數變數 `x` 和 `y` 作為迴圈計數器。
+
+5. `array[0][0] = 1;` 到 `array[2][2] = 9;`：將數字 1 到 9 分別賦值給二維陣列中的元素。
+
+6. `for (x = 0; x &lt; 3; x++)`：外層迴圈，從0到2，遍歷二維陣列的行。
+
+7. `for (y = 0; y &lt; 3; y++)`：內層迴圈，從0到2，遍歷二維陣列的列。
+
+8. `printf("%d,", array[x][y]);`：輸出二維陣列中當前位置的元素值，並在每個元素值後面加上逗號。
+
+9. `return 0;`：主函式正常結束，返回值為0。
+</pre>
 <p><img alt="" height="40" src="/images/ct5.png" width="250"/></p>
 <p>6</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2057,6 +2618,23 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，允許使用 `printf` 和其他相關的輸出函式。
+
+2. `int main()`：定義主函式。
+
+3. `int grade[5];`：宣告一個包含5個整數元素的陣列 `grade`。
+
+4. `int i;`：宣告整數變數 `i`，將用於迴圈計數。
+
+5. `grade[0] = 75;` 到 `grade[4] = 90;`：將分數賦值給陣列中的每個元素。
+
+6. `for (i = 0; i &lt; 5; i++)`：使用 `for` 迴圈，從0到4，遍歷陣列的每個元素。
+
+7. `printf("Number %d = %d\n", i, grade[i]);`：使用 `printf` 函式，輸出當前陣列元素的索引和值。
+
+8. `return 0;`：主函式正常結束，返回值為0。
+</pre>
 <p><img alt="" height="107" src="/images/ct6.png" width="232"/></p>
 <p>7</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2080,6 +2658,26 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 等相關的輸出函式。
+
+2. `int main()`：定義主函式。
+
+3. `int i, j;`：宣告整數變數 `i` 和 `j`。
+
+4. `i = 0;` 和 `j = 10;`：給變數 `i` 賦值0，`j` 賦值10。
+
+5. `do`：開始 `do-while` 迴圈，這部分的代碼將至少執行一次。
+
+6. `{`：迴圈的開始。
+
+7. `printf("i = %d, ", i);` 和 `printf("j = %d\n", j);`：使用 `printf` 函式印出 `i` 和 `j` 的值。
+
+8. `i++;` 和 `j++;`：將 `i` 和 `j` 遞增。
+
+9. `} while (i &lt; 6);`：`do-while` 迴圈的結尾。在這裡，條件 `i &lt; 6` 被檢查，如果成立，則迴圈會再次執行。如果條件不滿足，則迴圈結束。
+
+10. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="128" src="/images/ct7.png" width="234"/></p>
 <p>8</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2102,6 +2700,30 @@ int main()
 
     return 0;
 }</pre>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 等相關的輸出函式。
+
+2. `int main()`：定義主函式。
+
+3. `int x, y;`：宣告兩個整數變數 `x` 和 `y`，這將用於乘法表的索引。
+
+4. `for (x = 1; x &lt;= 9; x++)`：外部 `for` 迴圈，用於遍歷乘法表的行。從1開始，一直到9，每次遞增1。
+
+5. `{`：外部迴圈的開始。
+
+6. `for (y = 1; y &lt;= 9; y++)`：內部 `for` 迴圈，用於遍歷乘法表的列。同樣，從1開始，一直到9，每次遞增1。
+
+7. `{`：內部迴圈的開始。
+
+8. `printf("%2d ", x * y);`：使用 `printf` 函式印出 `x * y` 的結果。 `%2d` 的格式確保數字的對齊性，即使是個位數的結果也會有一個空格的寬度。
+
+9. `}`：內部迴圈的結尾。
+
+10. `printf("\n");`：在內部迴圈執行完畢後，換行，以便開始新的一行。
+
+11. `}`：外部迴圈的結尾。
+
+12. `return 0;`：主函式正常結束，返回值為0。</pre>
+<p><br/><br/></p>
 <p><img alt="" height="122" src="/images/ct8.png" width="162"/></p>
 <p>9</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2124,6 +2746,31 @@ int main()
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 等相關的輸出函式。
+
+2. `int main()`：定義主函式。
+
+3. `int i;`：宣告一個整數變數 `i`，將用於 `for` 迴圈的迭代。
+
+4. `for (i = 0; i &lt; 10; i++)`：`for` 迴圈，從 `i` 等於0開始，每次遞增1，直到 `i` 小於10。
+
+5. `{`：迴圈的開始。
+
+6. `if ((i == 1) || (i == 2) || (i == 3))`：條件語句，檢查 `i` 是否等於1、2或3。
+
+7. `{`：條件語句的開始。
+
+8. `continue;`：如果條件成立，執行 `continue`，這會跳過剩餘的程式碼，直接回到 `for` 迴圈的下一次迭代，忽略以下的 `printf`。
+
+9. `}`：條件語句的結尾。
+
+10. `printf("i = %d\n", i);`：在未遇到 `continue` 的情況下，印出 `i` 的值。
+
+11. `}`：迴圈的結尾。
+
+12. `return 0;`：主函式正常結束，返回值為0。
+</pre>
 <p><img alt="" height="110" src="/images/ct9.png" width="179"/></p>
 <p>10</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
@@ -2162,8 +2809,57 @@ break;
 
 return 0;
 }</pre>
-<p><img alt="" height="67" src="/images/ct10.png" width="238"/></p>
-<h1>ANSIC</h1>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 和 `scanf` 函式。
+
+2. `int main()`：定義主函式。
+
+3. `char c;`：宣告一個字符變數 `c`，用於存儲從用戶輸入讀取的字符。
+
+4. `printf("Input a char: ");`：輸出提示消息，要求用戶輸入一個字符。
+
+5. `if (scanf("%c", &amp;c) != 1)`：使用 `scanf` 函式讀取用戶輸入的字符。檢查 `scanf` 的返回值，確保成功讀取一個字符。
+
+6. `{`：`if` 條件語句的開始。
+
+7. `printf("Error reading input.\n");`：如果讀取失敗，輸出錯誤消息。
+
+8. `return 1;`：返回1，表示程式發生錯誤。
+
+9. `}`：`if` 條件語句的結尾。
+
+10. `switch (c)`：`switch` 語句，根據字符 `c` 的值進行分支選擇。
+
+11. `{`：`switch` 語句的開始。
+
+12. `case 'a':`：如果 `c` 的值等於 'a'，執行以下語句。
+
+13. `printf("You pressed a\n");`：輸出消息表示用戶按下 'a'。
+
+14. `break;`：跳出 `switch` 語句。
+
+15. `case 'b':`：如果 `c` 的值等於 'b'，執行以下語句。
+
+16. `printf("You pressed b\n");`：輸出消息表示用戶按下 'b'。
+
+17. `break;`：跳出 `switch` 語句。
+
+18. `case 'c':`：如果 `c` 的值等於 'c'，執行以下語句。
+
+19. `printf("You pressed c\n");`：輸出消息表示用戶按下 'c'。
+
+20. `break;`：跳出 `switch` 語句。
+
+21. `default:`：如果 `c` 的值不等於 'a'、'b' 或 'c'，執行以下語句。
+
+22. `printf("Unrecognized input\n");`：輸出消息表示輸入未被識別。
+
+23. `break;`：跳出 `switch` 語句。
+
+24. `}`：`switch` 語句的結尾。
+
+25. `return 0;`：主函式正常結束，返回值為0。</pre>
+<p><img alt="" height="67" src="/images/ct10.png" width="238"/></p><h1>ANSIC</h1>
 <p>1</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
@@ -2204,6 +2900,90 @@ int main() {
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 和 `scanf` 函式。
+   
+2. `#include &lt;string.h&gt;`：包含字串操作相關的庫，雖然在目前的程式碼中未使用。
+
+3. `int main()`：定義主函式。
+
+4. `int n, x = 0;`：宣告兩個整數變數 `n` 和 `x`，其中 `x` 被初始化為0。
+
+5. `printf("\n\n Check whether a given number is an ugly number:\n");`：輸出提示消息，要求用戶輸入一個數字以檢查是否為"ugly number"。
+
+6. `printf("----------------------------------------------------\n");`：輸出分隔線。
+
+7. `if (scanf("%d", &amp;n) != 1)`：使用 `scanf` 函式讀取用戶輸入的數字。檢查 `scanf` 的返回值，確保成功讀取一個整數。
+
+8. `{`：`if` 條件語句的開始。
+
+9. `printf("Input is not a valid integer.\n");`：如果讀取失敗，輸出錯誤消息。
+
+10. `return 1;`：返回1，表示程式發生錯誤。
+
+11. `}`：`if` 條件語句的結尾。
+
+12. `if (n &lt;= 0)`：檢查用戶輸入的數字是否小於或等於0。
+
+13. `{`：`if` 條件語句的開始。
+
+14. `printf("Input a correct number.\n");`：如果是，輸出消息表示輸入的數字不正確。
+
+15. `}`：`if` 條件語句的結尾。
+
+16. `else`：如果 `n` 大於0，執行以下語句。
+
+17. `{`：`else` 語句的開始。
+
+18. `while (n != 1)`：當 `n` 不等於1時，執行以下循環。
+
+19. `{`：`while` 循環的開始。
+
+20. `if (n % 5 == 0)`：如果 `n` 可以被5整除。
+
+21. `{`：`if` 條件語句的開始。
+
+22. `n /= 5;`：將 `n` 除以5。
+
+23. `}`：`if` 條件語句的結尾。
+
+24. `else if (n % 3 == 0)`：如果 `n` 不可被5整除，並且可以被3整除。
+
+25. `{`：`else if` 條件語句的開始。
+
+26. `n /= 3;`：將 `n` 除以3。
+
+27. `}`：`else if` 條件語句的結尾。
+
+28. `else if (n % 2 == 0)`：如果 `n` 不可被5和3整除，並且可以被2整除。
+
+29. `{`：`else if` 條件語句的開始。
+
+30. `n /= 2;`：將 `n` 除以2。
+
+31. `}`：`else if` 條件語句的結尾。
+
+32. `else`：如果 `n` 不能被5、3和2整除。
+
+33. `{`：`else` 語句的開始。
+
+34. `printf("It is not an ugly number.\n");`：輸出消息表示輸入的數字不是"ugly number"。
+
+35. `x = 1;`：設置 `x` 為1，表示已經找到了結果。
+
+36. `break;`：跳出 `while` 循環。
+
+37. `}`：`else` 語句的結尾。
+
+38. `if (x == 0)`：檢查 `x` 的值是否仍然為0。
+
+39. `{`：`if` 條件語句的開始。
+
+40. `printf("It is an ugly number.\n");`：如果是，輸出消息表示輸入的數字是"ugly number"。
+
+41. `}`：`if` 條件語句的結尾。
+
+42. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="87" src="/images/an1.png" width="300"/><br/><br/></p>
 <p>2</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2218,6 +2998,20 @@ int main(void)
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 函式。
+
+2. `#include &lt;time.h&gt;`：包含時間相關的庫，以便使用 `time` 函式和其他時間相關的功能。
+
+3. `int main(void)`：定義主函式，返回一個整數。
+
+4. `time_t epoch = 0;`：宣告一個 `time_t` 型別的變數 `epoch` 並將其初始化為0。`time_t` 是一種用於表示時間的數據類型，通常是從UNIX紀元（1970年1月1日）開始的秒數。
+
+5. `printf("\n自纪元开始以来的秒数：%ld\n", (long)epoch);`：輸出一條消息，顯示從UNIX紀元開始到目前經過的秒數。使用 `%ld` 格式化輸出長整數，`(long)epoch` 將 `epoch` 轉換為長整數。
+
+6. `printf("对应的日期和时间：%s\n", asctime(gmtime(&amp;epoch)));`：輸出一條消息，顯示將 `epoch` 轉換為日期和時間的結果。`gmtime(&amp;epoch)` 返回 `epoch` 的格林威治標準時間（GMT）的結構體表示，`asctime` 將結構體轉換為字串形式。`%s` 用於格式化輸出字串。
+
+7. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="83" src="/images/an2.png" width="345"/></p>
 <p>3</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#define __STDC_WANT_LIB_EXT1__ 1
@@ -2244,6 +3038,41 @@ int main(void)
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#define __STDC_WANT_LIB_EXT1__ 1`：這是一個預處理器指令，用來啟用 C11 標準庫的擴展功能，包括安全函式（安全函式的名稱帶有 `_s` 結尾）。
+
+2. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的指令，以便使用 `printf` 函式。
+
+3. `#include &lt;time.h&gt;`：包含時間相關的庫，以便使用 `time`、`gmtime`、`localtime`、`asctime` 函式。
+
+4. `int main(void)`：定義主函式，返回一個整數。
+
+5. `time_t t = time(NULL);`：宣告一個 `time_t` 型別的變數 `t`，並使用 `time(NULL)` 函式獲取當前的時間，將其賦值給 `t`。
+
+6. `printf("\nThe calendar time expressed as a local Time is :");`：輸出一條消息，提示即將輸出本地時間。
+
+7. `printf("\nUTC:   %s", asctime(gmtime(&amp;t)));`：使用 `gmtime` 函式將 `t` 轉換為格林威治標準時間（UTC），再使用 `asctime` 函式將其轉換為字串形式，最後使用 `printf` 函式輸出。
+
+8. `printf("local: %s\n", asctime(localtime(&amp;t)));`：使用 `localtime` 函式將 `t` 轉換為本地時間，再使用 `asctime` 函式將其轉換為字串形式，最後使用 `printf` 函式輸出。
+
+9. `#ifdef __STDC_LIB_EXT1__`：這是一個條件編譯指令，用於確保編譯器支持擴展功能。
+
+10. `struct tm buf;`：宣告一個 `struct tm` 型別的結構體 `buf`，用於存儲時間的詳細信息。
+
+11. `char str[26];`：宣告一個長度為26的字符陣列 `str`，用於存儲轉換後的時間字串。
+
+12. `asctime_s(str, sizeof str, gmtime_s(&amp;t, &amp;buf));`：使用 `gmtime_s` 函式將 `t` 轉換為格林威治標準時間（UTC），再使用 `asctime_s` 函式將其轉換為字串形式，並安全地將結果存儲到 `str` 中。
+
+13. `printf("UTC:   %s", str);`：使用 `printf` 函式輸出 UTC 時間字串。
+
+14. `asctime_s(str, sizeof str, localtime_s(&amp;t, &amp;buf));`：使用 `localtime_s` 函式將 `t` 轉換為本地時間，再使用 `asctime_s` 函式將其轉換為字串形式，並安全地將結果存儲到 `str` 中。
+
+15. `printf("local: %s", str);`：使用 `printf` 函式輸出本地時間字串。
+
+16. `#endif`：結束條件編譯區塊。
+
+17. `return 0;`：主函式正常結束，返回值為0。</pre>
+<p></p>
 <p><img alt="" height="98" src="/images/an3.png" width="387"/></p>
 <p>4</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdlib.h&gt;
@@ -2272,6 +3101,32 @@ int main(void)
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdlib.h&gt;`：包含標準庫的 `stdlib.h` 標頭文件，該文件提供動態內存分配、亂數生成、環境變數管理等功能。
+
+2. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，該文件提供輸入和輸出的相關函式。
+
+3. `#include &lt;time.h&gt;`：包含時間相關的庫，以便使用 `time`、`localtime`、`mktime`、`asctime` 函式。
+
+4. `int main(void)`：定義主函式，返回一個整數。
+
+5. `setenv("TZ", "/usr/share/zoneinfo/Asia/Calcutta", 1);`：使用 `setenv` 函式將時區設置為“Asia/Calcutta”，這是印度的一個時區。
+
+6. `struct tm tm = *localtime(&amp;(time_t){time(NULL)});`：宣告一個 `struct tm` 型別的結構體 `tm`，並使用 `time` 函式獲取當前時間，再用 `localtime` 函式將時間轉換為本地時間。
+
+7. `printf("\n今天是 :            %s", asctime(&amp;tm));`：使用 `asctime` 函式將 `tm` 轉換為字串形式，然後使用 `printf` 函式輸出當前日期和時間。
+
+8. `printf("(夏令时 %s)\n", tm.tm_isdst ? "生效中" : "未生效");`：使用 `tm_isdst` 成員判斷當前是否處於夏令時，並輸出相應的消息。
+
+9. `tm.tm_mon -= 24;`：將 `tm` 結構體中的月份減去24，表示24個月前的日期和時間。
+
+10. `mktime(&amp;tm);`：使用 `mktime` 函式重新計算 `tm` 結構體中的時間，確保時間的正確性。
+
+11. `printf("\n24个月前的日期是 : %s", asctime(&amp;tm));`：使用 `asctime` 函式將 `tm` 轉換為字串形式，然後使用 `printf` 函式輸出24個月前的日期和時間。
+
+12. `printf("(夏令时 %s)\n\n", tm.tm_isdst ? "生效中" : "未生效");`：使用 `tm_isdst` 成員判斷24個月前是否處於夏令時，並輸出相應的消息。
+
+13. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="111" src="/images/an4.png" width="313"/></p>
 <p>5</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2297,6 +3152,42 @@ int main(void)
     printf("\nResult:(x^n) : %f ",powxn(x, n));
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，提供輸入和輸出的相關函式。
+
+2. `#include &lt;limits.h&gt;`：包含標準整數類型的庫的 `limits.h` 標頭文件，提供整數類型的極值常量。
+
+3. `double powxn(double x, int n)`：定義一個名為 `powxn` 的函式，用於計算 `x` 的 `n` 次方。函式返回一個 `double` 型別的值。
+
+4. `double k;`：宣告一個 `double` 型別的變數 `k`，用於存儲計算結果。
+
+5. `if (n == 0) return 1;`：如果指數 `n` 為0，直接返回1，因為任何數的0次方都是1。
+
+6. `k = powxn(x * x, n / 2);`：遞迴計算 `x` 的平方的 `(n / 2)` 次方。
+
+7. `if (n % 2) k = k * x;`：如果指數 `n` 為奇數，乘上額外的一個 `x`。
+
+8. `return k;`：返回計算結果 `k`。
+
+9. `int main(void)`：定義主函式，返回一個整數。
+
+10. `double x = 7.0;`：初始化一個 `double` 型別的變數 `x`，值為7.0。
+
+11. `int n = 2;`：初始化一個整數型別的變數 `n`，值為2。
+
+12. `printf("\nx = %f, y = %d  ", x, n);`：使用 `printf` 函式輸出變數 `x` 和 `n` 的值。
+
+13. `printf("\nResult:(x^n) : %f ",powxn(x, n));`：使用 `printf` 函式輸出 `x` 的 `n` 次方的結果，調用 `powxn` 函式計算。
+
+14. `x = 6.2;`：將變數 `x` 的值更改為6.2。
+
+15. `n = 3;`：將變數 `n` 的值更改為3。
+
+16. `printf("\n\nx = %f, y = %d  ", x, n);`：再次使用 `printf` 函式輸出更新後的變數 `x` 和 `n` 的值。
+
+17. `printf("\nResult:(x^n) : %f ",powxn(x, n));`：再次使用 `printf` 函式輸出 `x` 的 `n` 次方的結果，調用 `powxn` 函式計算。
+
+18. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="113" src="/images/an5.png" width="310"/></p>
 <p>6</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">//Source: https://bit.ly/2KNsta8
@@ -2390,6 +3281,96 @@ int main(void)
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，提供輸入和輸出的相關函式。
+
+2. `#include &lt;stdlib.h&gt;`：包含標準庫的 `stdlib.h` 標頭文件，提供動態內存分配函式，如 `malloc` 和 `realloc`。
+
+3. `#include &lt;string.h&gt;`：包含標準字串函式的 `string.h` 標頭文件。
+
+4. `#include &lt;stdbool.h&gt;`：包含 `stdbool.h` 標頭文件，提供布林型別 `bool` 和相關的 `true`、`false` 常量。
+
+5. `char* fractionToDecimal(int numerator, int denominator)`：定義一個函式 `fractionToDecimal`，該函式接收分子 `numerator` 和分母 `denominator`，返回一個指向字符陣列的指標。
+
+6. `char *p;`：宣告一個指向字符的指標 `p`，用於存儲結果。
+
+7. `int psz, n, *dec, dsz, x;`：宣告一些整數變數，其中 `psz` 和 `dsz` 分別用於表示陣列 `p` 和 `dec` 的大小，`n` 表示字符陣列 `p` 目前的位置，`x` 用於追蹤數字陣列 `dec` 的位置。
+
+8. `long long num, den, k, f;`：宣告一些長整數變數，用於存儲分子 `numerator`、分母 `denominator`、商 `k` 和餘數 `f`。
+
+9. `int i, repeat_at;`：宣告迴圈中使用的整數變數，`i` 用於迴圈遍歷，`repeat_at` 用於標記重複的位置。
+
+10. `int neg = 0;`：宣告一個整數變數 `neg`，用於標記分數是否為負數。
+
+11. `psz = dsz = 100; n = x = 0;`：初始化一些變數的大小，`psz` 和 `dsz` 設置為100，`n` 和 `x` 設置為0。
+
+12. `p = malloc(psz * sizeof(char));`：使用 `malloc` 函式分配 `psz` 大小的內存，用於存儲結果。
+
+13. `neg = ((numerator &gt; 0 &amp;&amp; denominator &lt; 0) || (numerator &lt; 0 &amp;&amp; denominator &gt; 0)) ? 1 : 0;`：檢查分數的正負性。
+
+14. `num = numerator;`、`den = denominator;`：將分子和分母的值存儲在 `num` 和 `den` 中。
+
+15. `num = (num &lt; 0) ? -num : num;`、`den = (den &lt; 0) ? -den : den;`：如果分子或分母為負，則取絕對值。
+
+16. `k = num / den;`、`f = num % den;`：計算商 `k` 和餘數 `f`。
+
+17. `if (neg &amp;&amp; (k || f)) p[n ++] = '-';`：如果分數為負，並且商 `k` 或餘數 `f` 不為0，將負號加入結果。
+
+18. `n += sprintf(&amp;p[n], "%lld", k);`：使用 `sprintf` 函式將商 `k` 轉換為字符串，並將其添加到結果中。
+
+19. `if (!f) { p[n] = 0; return p; }`：如果餘數 `f` 為0，表示分數為整數，將結果結束並返回。
+
+20. `p[n ++] = '.';`：如果有小數部分，添加小數點。
+
+21. `dec = malloc(dsz * sizeof(int));`：使用 `malloc` 函式分配 `dsz` 大小的整數陣列內存，用於存儲小數部分。
+
+22. `repeat_at = -1;`：初始化 `repeat_at` 為-1，用於標記重複的位置。
+
+23. `if (f &lt; 0) f = -f;`：如果餘數 `f` 為負，取絕對值。
+
+24. `while (f) {`：當餘數 `f` 不為0時執行迴圈。
+
+25. `for (i = 0; i &lt; x; i += 2) { if (dec[i] == f) { repeat_at = i; goto done; } }`：檢查小數部分是否重複，如果發現重複，標記位置並跳轉到 `done` 標籤。
+
+26. `if (x + 1 &gt;= dsz) { dsz *= 2; dec = realloc(dec, dsz * sizeof(int
+
+)); }`：檢查 `dec` 陣列大小是否足夠，如果不夠，則雙倍擴展其大小。
+
+27. `dec[x ++] = f;`、`f *= 10;`、`k = f / den;`、`dec[x ++] = k;`、`f = f % den;`：更新小數部分的數字陣列 `dec`。
+
+28. `done:`：標籤，表示已經完成查找重複的過程。
+
+29. `for (i = 0; i &lt; x; i += 2) {`：遍歷小數部分的數字陣列 `dec`。
+
+30. `if (n + 3 &gt; psz) { psz *= 2; p = realloc(p, psz * sizeof(char)); }`：檢查結果陣列 `p` 的大小是否足夠，如果不夠，則雙倍擴展其大小。
+
+31. `if (repeat_at == i) { p[n ++] = '('; }`：如果遇到重複的位置，添加開始標記 `(`。
+
+32. `p[n ++] = '0' + dec[i + 1];`：將小數部分的數字添加到結果。
+
+33. `if (repeat_at != -1) p[n ++] = ')';`：如果有重複，添加結束標記 `)`。
+
+34. `p[n ++] = 0;`：結束結果的字符串。
+
+35. `free(dec);`：釋放小數部分的數字陣列 `dec` 所占的內存。
+
+36. `return p;`：返回存儲結果的指標。
+
+37. `int main(void)`：定義主函式，返回一個整數。
+
+38. `int n = 3;`、`int d = 2;`：初始化兩個整數變數 `n` 和 `d`，分別表示分子和分母。
+
+39. `printf("\nn = %d, d = %d  ", n, d);`：使用 `printf` 函式輸出分數的分子和分母。
+
+40. `printf("\nFractional part: %s ", fractionToDecimal(n, d));`：使用 `printf` 函式輸出分數的十進制小數部分，調用 `fractionToDecimal` 函式計算。
+
+41. `n = 4;`、`d = 7;`：更新分數的分子和分母。
+
+42. `printf("\n\nn = %d, d = %d  ", n, d);`：再次使用 `printf` 函式輸出更新後的分子和分母。
+
+43. `printf("\nFractional part: %s ", fractionToDecimal(n, d));`：再次使用 `printf` 函式輸出更新後的分數的十進制小數部分，調用 `fractionToDecimal` 函式計算。
+
+44. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="94" src="/images/an6.png" width="287"/></p>
 <p>7</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2423,6 +3404,34 @@ int main() {
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，提供輸入和輸出的相關函式。
+
+2. `int main()`：定義主函式，返回一個整數。
+
+3. `int fno, sno, *ptr, *qtr, sum;`：宣告整數變數 `fno`、`sno`、`sum`，以及整數指標 `ptr` 和 `qtr`。
+
+4. `printf("\n\n Pointer : Add two numbers :\n");`：使用 `printf` 函式輸出提示信息，表示要使用指標相加兩個數字。
+
+5. `printf("--------------------------------\n");`：使用 `printf` 函式輸出分隔線。
+
+6. `printf(" Input the first number : ");`：使用 `printf` 函式提示用戶輸入第一個數字。
+
+7. `if (scanf("%d", &amp;fno) != 1) { fprintf(stderr, "Error: Invalid input for the first number.\n"); return 1; }`：使用 `scanf` 函式讀取第一個數字，並檢查是否成功讀取一個整數。如果讀取失敗，則輸出錯誤信息並返回1。
+
+8. `printf(" Input the second number : ");`：使用 `printf` 函式提示用戶輸入第二個數字。
+
+9. `if (scanf("%d", &amp;sno) != 1) { fprintf(stderr, "Error: Invalid input for the second number.\n"); return 1; }`：使用 `scanf` 函式讀取第二個數字，並檢查是否成功讀取一個整數。如果讀取失敗，則輸出錯誤信息並返回1。
+
+10. `ptr = &amp;fno;`：將變數 `fno` 的地址賦值給指標 `ptr`。
+
+11. `qtr = &amp;sno;`：將變數 `sno` 的地址賦值給指標 `qtr`。
+
+12. `sum = *ptr + *qtr;`：使用指標 `ptr` 和 `qtr` 解參考，取得它們所指向的值，然後計算這兩個值的和，將結果賦值給變數 `sum`。
+
+13. `printf(" The sum of the entered numbers is : %d\n\n", sum);`：使用 `printf` 函式輸出輸入數字的總和。
+
+14. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="122" src="/images/an7.png" width="268"/></p>
 <p>8</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2456,6 +3465,36 @@ int main() {
     printf("\n");
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，提供輸入和輸出的相關函式。
+
+2. `int main()`：定義主函式，返回一個整數。
+
+3. `int arr[10];`：宣告一個大小為10的整數數組 `arr`，用於存儲使用者輸入的十個整數。
+
+4. `int i;`：宣告整數變數 `i`，用於迴圈中計數。
+
+5. `printf("\n\nRead and Print elements of an array:\n");`：使用 `printf` 函式輸出提示信息，表示將要讀取並打印數組元素。
+
+6. `printf("-----------------------------------------\n");`：使用 `printf` 函式輸出分隔線。
+
+7. `printf("Input 10 elements in the array :\n");`：使用 `printf` 函式提示用戶輸入十個整數。
+
+8. `for (i = 0; i &lt; 10; i++) {`：使用 `for` 迴圈，從0開始，重複10次，迭代變數 `i` 用於控制迴圈。
+
+9. `printf("element - %d : ", i);`：使用 `printf` 函式提示用戶輸入當前迴圈迭代的數組元素的索引。
+
+10. `if (scanf("%d", &amp;arr[i]) != 1) {`：使用 `scanf` 函式讀取一個整數，並檢查是否成功讀取。如果讀取失敗，輸出錯誤信息並返回1。
+
+11. `printf("\nElements in array are: ");`：使用 `printf` 函式輸出提示信息，表示要打印數組中的所有元素。
+
+12. `for (i = 0; i &lt; 10; i++) {`：再次使用 `for` 迴圈，從0開始，重複10次，迭代變數 `i` 用於控制迴圈。
+
+13. `printf("%d  ", arr[i]);`：使用 `printf` 函式打印數組中當前索引處的元素。
+
+14. `printf("\n");`：換行。
+
+15. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="149" src="/images/an8.png" width="285"/></p>
 <p>9</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2477,6 +3516,28 @@ int main() {
 
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，提供輸入和輸出的相關函式。
+
+2. `int main()`：定義主函式，返回一個整數。
+
+3. `int days, years, weeks;`：宣告三個整數變數 `days`、`years` 和 `weeks`，用於存儲計算日期的相關值。
+
+4. `days = 1329;`：給變數 `days` 賦值為1329，表示總天數。
+
+5. `years = days / 365;`：計算變數 `days` 中包含的年數，將結果存儲在變數 `years` 中。
+
+6. `weeks = (days % 365) / 7;`：計算變數 `days` 中剩餘的天數，將其轉換為週數，將結果存儲在變數 `weeks` 中。使用 `%` 運算符計算天數的餘數。
+
+7. `days = days % 7;`：計算變數 `days` 中剩餘的天數，將結果存儲在變數 `days` 中。這表示不足一週的天數。
+
+8. `printf("Years: %d\n", years);`：使用 `printf` 函式輸出計算得到的年數。
+
+9. `printf("Weeks: %d\n", weeks);`：使用 `printf` 函式輸出計算得到的週數。
+
+10. `printf("Days: %d\n", days);`：使用 `printf` 函式輸出計算得到的剩餘天數。
+
+11. `return 0;`：主函式正常結束，返回值為0。</pre>
 <p><img alt="" height="79" src="/images/an9.png" width="231"/></p>
 <p>10</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2520,8 +3581,29 @@ int main() {
 
     return 0;
 }</pre>
-<p><img alt="" height="94" src="/images/an10.png" width="203"/></p>
-<h1>ANSIC_T</h1>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出庫的 `stdio.h` 標頭文件，提供輸入和輸出的相關函式。
+
+2. `int main()`：定義主函式，返回一個整數。
+
+3. `double wi1, ci1, wi2, ci2, result;`：宣告五個雙精度浮點變數 `wi1`、`ci1`、`wi2`、`ci2` 和 `result`，用於存儲物品的重量、數量和計算的結果。
+
+4. `printf("Weight - Item1: ");`：提示用戶輸入物品1的重量。
+
+5. `if (scanf("%lf", &amp;wi1) != 1) {...}`：使用 `scanf` 函式讀取用戶輸入的浮點數值，存儲在 `wi1` 中。檢查 `scanf` 的返回值，確保成功讀取一個數字，否則輸出錯誤信息並返回1。
+
+6. 類似地，提示用戶輸入物品1的數量，並讀取輸入值到變數 `ci1` 中。
+
+7. 類似地，提示用戶輸入物品2的重量，並讀取輸入值到變數 `wi2` 中。
+
+8. 類似地，提示用戶輸入物品2的數量，並讀取輸入值到變數 `ci2` 中。
+
+9. `result = ((wi1 * ci1) + (wi2 * ci2)) / (ci1 + ci2);`：計算平均值，使用公式 `(wi1 * ci1 + wi2 * ci2) / (ci1 + ci2)`。
+
+10. `printf("Average Value = %f\n", result);`：使用 `printf` 函式輸出計算得到的平均值。
+
+11. `return 0;`：主函式正常結束，返回值為0。</pre>
+<p><img alt="" height="94" src="/images/an10.png" width="203"/></p><h1>ANSIC_T</h1>
 <p>1</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
