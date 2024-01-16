@@ -208,6 +208,50 @@ gdImageLine(img, bx, by, ex, ey, white);
 gdImageLine(img, ex, ey, dx, dy, white);
 gdImageLine(img, dx, dy, ax, ay, white);
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`：包含標準輸入/輸出函式庫，提供對標準I/O功能的訪問。
+
+2. `#include &lt;gd.h&gt;`：包含gd函式庫，這是一個用於圖形繪製的函式庫。
+
+3. `#include &lt;math.h&gt;`：包含數學函式庫，這裡主要使用了M_PI，代表圓周率π。
+
+4. `void draw_roc_flag(gdImagePtr img);` 和 `void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);`：函式的聲明。
+
+5. `int main()`：主函式開始。
+
+6. `int width = 1200;` 和 `int height = (int)(width*2.0 / 3.0);`：定義國旗的寬度和高度，根據指定的長寬比例計算。
+
+7. `gdImagePtr img = gdImageCreateTrueColor(width, height);`：使用gdImageCreateTrueColor函式創建了一個真彩色的gdImage對象，代表了指定寬度和高度的圖像。
+
+8. `gdImageAlphaBlending(img, 0);`：設置圖像的Alpha混合模式為關閉。
+
+9. `draw_roc_flag(img);`：調用`draw_roc_flag`函式，將中華民國國旗繪製在圖像上。
+
+10. `FILE *outputFile = fopen("./../images/roc_flag_in_gd.png", "wb");`：打開一個二進制寫入文件，用於保存最終的PNG圖像。
+
+11. `if (outputFile == NULL) { fprintf(stderr, "Error opening the output file.\n"); return 1; }`：錯誤檢查，確保成功打開文件，否則輸出錯誤消息並結束程式。
+
+12. `gdImagePngEx(img, outputFile, 9);`：使用gdImagePngEx函式將圖像寫入已打開的文件，並指定壓縮級別為9。
+
+13. `fclose(outputFile);`：關閉文件。
+
+14. `gdImageDestroy(img);`：釋放由gd函式庫分配的圖像內存。
+
+15. `return 0;`：主函式執行成功，返回0表示程式執行成功。
+
+16. `void draw_roc_flag(gdImagePtr img)`：定義了一個函式，用於在圖像上繪製中華民國國旗。
+
+17. `int width = gdImageSX(img);` 和 `int height = gdImageSY(img);`：獲取圖像的寬度和高度。
+
+18. `int red, white, blue;`：定義紅色、白色和藍色的顏色索引。
+
+19. `int center_x = (int)(width/4);` 和 `int center_y = (int)(height/4);`：計算中心點的座標，使得白日位於青天面積正中央。
+
+20. `int sun_radius = (int)(width/8);`、`int white_circle_dia = sun_radius;` 和 `int blue_circle_dia = white_circle_dia +  white_circle_dia*2/15;`：計算中央白日圓形、中央藍色圓形的半徑或直徑。
+
+21. `red = gdImageColorAllocate(img, 255, 0, 0);`、`white = gdImageColorAllocate(img, 255, 255, 255);` 和 `blue = gdImageColorAllocate(img, 0, 0, 149);`：為紅色、白色和藍色分配顏色索引。
+
+22. `gdImageFilledRectangle(img, 0, 0, width, height, red);` 和 `gdImageFilledRectangle(img, 0, 0, (int)(width/2.0), (int)(height/2.0), blue);`：分別使用gdImageFilledRectangle函式填充紅色和藍色的區</pre>
 <p></p>
 <p><img alt="" height="267" src="./../images/roc_list.png" width="400"/></p>
 <p>上課第二堂求四個焦點</p>
@@ -365,6 +409,56 @@ double y6 = 125;
 circleLineIntersection(circle_x, circle_y, radius, x6, y6, x5, y5);
 
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`: 引入標準輸入/輸出函式庫。
+2. `#include &lt;gd.h&gt;`: 引入gd函式庫，這是一個用於處理圖形數據的函式庫。
+3. `#include &lt;math.h&gt;`: 引入math函式庫，這裡主要使用了數學計算相關的函式。
+
+4. `void draw_roc_flag(gdImagePtr img);` 和 `void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);`: 函式聲明。
+
+5. `int main() {`: 主函式開始。
+
+6. `int width = 1200;` 和 `int height = (int)(width*2.0 / 3.0);`: 設置國旗的寬度和高度，符合3:2的寬高比。
+
+7. `gdImagePtr img = gdImageCreateTrueColor(width, height);`: 創建一個指定寬度和高度的真彩色圖像。
+
+8. `gdImageAlphaBlending(img, 0);`: 設置圖像的Alpha混合模式為關閉。
+
+9. `draw_roc_flag(img);`: 調用`draw_roc_flag`函式，將中華民國國旗繪製在圖像上。
+
+10. `FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");`: 打開一個二進制寫入文件，用於保存最終的PNG圖像。
+
+11. `if (outputFile == NULL) { fprintf(stderr, "Error opening the output file.\n"); return 1; }`: 檢查文件是否成功打開，否則輸出錯誤消息並結束程式。
+
+12. `gdImagePngEx(img, outputFile, 9);`: 使用gdImagePngEx函式將圖像寫入已打開的文件，指定壓縮級別為9。
+
+13. `fclose(outputFile);`: 關閉文件。
+
+14. `gdImageDestroy(img);`: 釋放由gd函式庫分配的圖像內存。
+
+15. `return 0;`: 主函式執行成功，返回0表示程式執行成功。
+
+16. `void draw_roc_flag(gdImagePtr img) {`: 定義了一個函式，用於在圖像上繪製中華民國國旗。
+
+17. `int width = gdImageSX(img);` 和 `int height = gdImageSY(img);`: 獲取圖像的寬度和高度。
+
+18. `int red, white, blue;`: 定義紅色、白色和藍色的顏色索引。
+
+19. `int center_x = (int)(width/4);` 和 `int center_y = (int)(height/4);`: 計算中心點的座標，使白日位於青天面積正中央。
+
+20. `int sun_radius = (int)(width/8);`: 計算中央白日圓形的半徑。
+
+21. `int white_circle_dia = sun_radius;` 和 `int blue_circle_dia = white_circle_dia +  white_circle_dia*2/15;`: 計算中央白日圓形直徑和中央藍色圓形半徑。
+
+22. `red = gdImageColorAllocate(img, 255, 0, 0);`, `white = gdImageColorAllocate(img, 255, 255, 255);` 和 `blue = gdImageColorAllocate(img, 0, 0, 149);`: 為紅色、白色和藍色分配顏色索引。
+
+23. `gdImageFilledRectangle(img, 0, 0, width, height, red);`: 用紅色填充整個圖像。
+
+24. `gdImageFilledRectangle(img, 0, 0, (int)(width/2.0), (int)(height/2.0), blue);`: 用藍色填充圖像的左上角區域，即青天。
+
+25. `{int x1 = 429; int y1 = 125; int x2 = 279; int y2 = 165; gdImageLine(img, x1, y1, x2, y2, white); }`: 繪製一條連接兩點的白色線。
+
+26. `{int x1 = 170; int y1 = 274; int x2 = 279; int y2 = 165; gdImageLine(img, x1, y1, x2, y2, white); }`: 繪製第二條連</pre>
 <p></p>
 <p><img alt="" height="123" src="./../images/Desktop Screenshot 2023.12.28 - 08.23.22.44.png" width="400"/></p>
 <br />w13 << <a href='w13.html'>Previous</a> <a href='W16.html'>Next</a> >> W16</div>

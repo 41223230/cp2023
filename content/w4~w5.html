@@ -186,10 +186,27 @@ int main() {
 
     return 0;
 }</pre>
-<p>clear</p>
-<p>cd downloads</p>
-<p>cc gnuplot_ex1.c</p>
-<p>./a.out</p>
+<p>解釋 ：</p>
+<p></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">這是一個使用C語言編寫的程式，它使用了標準的stdio.h標頭文件，並包含了一個主函式main。
+
+1. `#include &lt;stdio.h&gt;`：這行指令包含了標準輸入/輸出函式庫，這是C語言中用於處理輸入和輸出的函式庫。
+
+2. `int main()`：這是C程式的進入點，所有的執行都從這裡開始。它返回一個整數值，通常是0，表示程式執行成功。
+
+3. `FILE *gnuplotPipe = popen("gnuplot -persistent", "w");`：這行程式碼使用popen函式啟動一個Gnuplot進程，並返回一個文件指標（FILE *gnuplotPipe），該指標用於向Gnuplot進程寫入命令。這個Gnuplot進程使用-persistent選項，表示它將保持打開，而不是在每次繪圖後自動關閉。
+
+4. `if (!gnuplotPipe) { fprintf(stderr, "Failed to start Gnuplot.\n"); return 1; }`：這是一個錯誤檢查，確保成功啟動了Gnuplot進程。如果popen失敗，則向標準錯誤流（stderr）輸出錯誤消息，並返回1表示程式執行失敗。
+
+5. `fprintf(gnuplotPipe, "set terminal png font 'default,10' size 800,400\n");`：這行程式碼向Gnuplot進程發送命令，設置輸出的圖形格式為PNG，指定字體為默認字體，大小為800x400。
+
+6. `fprintf(gnuplotPipe, "set output './../images/gnuplot_ex1.png'\n");`：這行程式碼指定輸出圖形的文件路徑和名稱。
+
+7. `fprintf(gnuplotPipe, "plot sin(x)");`：這行程式碼發送Gnuplot繪圖命令，這裡是繪製sin(x)函數。
+
+8. `pclose(gnuplotPipe);`：這行程式碼關閉與Gnuplot進程的連接，確保在結束時清理相關資源。
+
+9. `return 0;`：主函式執行成功，返回0表示程式執行成功。</pre>
 <p><img alt="" height="200" src="./../images/gnuplot_ex1.png" width="400"/></p>
 <p>心得：進入了第四、五周，除了建立了自己的考試帳號，也將自己的網站加設上了密碼，還有在replit中設定g<span>nuplot環境設定，來完成課堂上的作業。</span></p>
 <p><span><video controls="controls" height="150" width="300">

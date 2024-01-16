@@ -228,6 +228,42 @@ int main() {
     draw_system("mass_spring_damper_system.png");
     return 0;
 }</pre>
+<p>解釋：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">1. `#include &lt;stdio.h&gt;`: 引入標準輸入/輸出函式庫。
+
+2. `#include &lt;gd.h&gt;`: 引入gd函式庫，這是一個用於處理圖形數據的函式庫。
+
+3. `void draw_system(const char* filename) {`: 定義了一個名為`draw_system`的函式，用於繪製質點-彈簧-減震器系統。
+
+4. `int width = 600;`, `int height = 300;`: 定義圖像的寬度和高度。
+
+5. `int x_margin = 50;`, `int y_margin = 50;`: 定義圖像邊緣的水平和垂直邊距。
+
+6. `int mass_radius = 20;`, `int spring_width = 4;`, `int damper_width = 4;`: 定義質點、彈簧和減震器的相關尺寸。
+
+7. `gdImagePtr img = gdImageCreate(width, height);`: 創建一個指定寬度和高度的圖像。
+
+8. `int background_color = gdImageColorAllocate(img, 255, 255, 255);`, `int mass_color = gdImageColorAllocate(img, 0, 0, 0);`, `int spring_color = gdImageColorAllocate(img, 0, 0, 0);`, `int damper_color = gdImageColorAllocate(img, 0, 0, 0);`, `int wall_color = gdImageColorAllocate(img, 0, 0, 0);`: 分別為背景、質點、彈簧、減震器和牆分配顏色。
+
+9. `gdImageLine(img, x_margin, y_margin, x_margin, height - y_margin, wall_color);`: 畫左牆，從圖像的左邊緣到底部。
+
+10. `int x1 = x_margin + 2 * mass_radius;`, `int y1 = height / 2;`: 設置質點1的座標。
+
+11. `gdImageFilledEllipse(img, x1, y1, mass_radius, mass_radius, mass_color);`: 在圖像上畫一個填充的橢圓，代表質點1。
+
+12. `int spring1_start_x = x_margin;`, `int spring1_end_x = x1 - mass_radius;`, `int spring1_y = y1;`: 設置彈簧1的起點、終點和y座標。
+
+13. `gdImageLine(img, spring1_start_x, spring1_y, spring1_end_x, spring1_y, spring_color);`: 畫彈簧1。
+
+14. `gdImageSetThickness(img, spring_width);`, `gdImageLine(img, spring1_start_x, spring1_y, spring1_end_x, spring1_y, spring_color);`, `gdImageSetThickness(img, 1);`: 設置彈簧1的寬度，畫彈簧，然後將寬度恢復為1。
+
+15. `int damper1_start_x = x_margin / 2;`, `int damper1_end_x = x1 - mass_radius;`, `int damper1_y = y1;`: 設置減震器1的起點、終點和y座標。
+
+16. `gdImageLine(img, damper1_start_x, damper1_y, damper1_end_x, damper1_y, damper_color);`: 畫減震器1。
+
+17. `gdImageSetThickness(img, damper_width);`, `gdImageLine(img, damper1_start_x, damper1_y, damper1_end_x, damper1_y, damper_color);`, `gdImageSetThickness(img, 1);`: 設置減震器1的寬度，畫減震器，然後將寬度恢復為1。
+
+18. 類似地，繪製了質點2、彈簧2和減震器2的元素，坐標分別為`x2`、`y2`、`spring2_start_x`、`spring2_end_x`</pre>
 <p><br/><img alt="" height="150" src="./../images/mass_spring_damper_system.png" width="300"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
  
@@ -297,6 +333,8 @@ int main() {
     return 0;
 }
 </pre>
+<p></p>
+<p></p>
 <p><img alt="" height="225" src="./../images/trajectory_plot.png" width="301"/><br/><br/></p>
 <p></p>
 <br />w15 << <a href='w15.html'>Previous</a> <a href='C_EX.html'>Next</a> >> C_EX</div>
